@@ -1,6 +1,6 @@
 'use client'
 
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -27,21 +27,24 @@ export const GlobalStyles = createGlobalStyle`
     src: url('/fonts/poppins-v20-latin-600.woff2') format('woff2');
   }
 
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+  ${({ theme }) => css`
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-  html {
-    font-size: 62.5%; // 1rem to 10px
-  }
+    html {
+      font-size: 62.5%; // 1rem to 10px
+    }
 
-  html, body, #__next {
-    height: 100%;
-  }
+    html, body, #__next {
+      height: 100%;
+    }
 
-  body {
-    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-  }
+    body {
+      font-family: ${theme.font.family};
+      font-size: ${theme.font.sizes.medium};
+    }
+  `}
 `
