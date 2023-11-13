@@ -55,6 +55,7 @@
     "prettier": "3.0.3",
     "storybook": "^7.5.3",
     "styled-components": "^6.0.8",
+    "styled-media-query": "^2.1.2",
     "typescript": "latest"
   }
 }
