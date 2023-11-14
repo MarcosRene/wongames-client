@@ -16,11 +16,14 @@ const wrapperModifiers = {
     height: 5rem;
     font-size: ${theme.font.sizes.medium};
     padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
+  `,
+  fullWidth: css`
+    width: 100%;
   `
 }
 
 export const Wrapper = styled.button<StylesProps>`
-  ${({ theme, size }) => css`
+  ${({ theme, size, fullWidth }) => css`
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     color: ${theme.colors.white};
     border: 0;
@@ -28,5 +31,6 @@ export const Wrapper = styled.button<StylesProps>`
     padding: ${theme.spacings.xxsmall};
 
     ${!!size && wrapperModifiers[size](theme)};
+    ${!!fullWidth && wrapperModifiers.fullWidth};
   `};
 `
