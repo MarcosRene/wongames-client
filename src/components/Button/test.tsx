@@ -7,13 +7,15 @@ import Button from '.'
 
 describe('<Button />', () => {
   it('should render the medium size by default', () => {
-    renderWithTheme(<Button>Buy now</Button>)
+    const { container } = renderWithTheme(<Button>Buy now</Button>)
 
     expect(screen.getByRole('button', { name: /Buy now/i })).toHaveStyle({
       height: '4rem',
       padding: `${theme.spacings.xxsmall} ${theme.spacings.medium}`,
       'font-size': theme.font.sizes.small
     })
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the small size', () => {
@@ -41,5 +43,18 @@ describe('<Button />', () => {
     expect(screen.getByRole('button', { name: /Buy now/i })).toHaveStyle({
       width: '100%'
     })
+  })
+
+  it('should render Button as a link', () => {
+    renderWithTheme(
+      <Button as="a" href="/link">
+        Buy now
+      </Button>
+    )
+
+    expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute(
+      'href',
+      '/link'
+    )
   })
 })

@@ -230,25 +230,19 @@ exports[`<Footer /> should render 4 column topics 1`] = `
         aria-labelledby="footer resources"
       >
         <a
-          href="/"
+          href="/ "
         >
-          <a>
-            Home
-          </a>
+          Home
         </a>
         <a
           href="/games"
         >
-          <a>
-            Store
-          </a>
+          Store
         </a>
         <a
           href="/search"
         >
-          <a>
-            Buscar
-          </a>
+          Buscar
         </a>
       </nav>
     </div>
@@ -280,14 +274,4 @@ exports[`<Footer /> should render 4 column topics 1`] = `
     Won Games 2020 © All rights reserved.
   </div>
 </footer>
-`;
-
-exports[`<Footer /> should render the heading 1`] = `
-<main
-  class=""
->
-  <h1>
-    Footer
-  </h1>
-</main>
 `;
