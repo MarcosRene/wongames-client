@@ -35,7 +35,7 @@ describe('<Heading />', () => {
 
     expect(screen.getByRole('heading', { name: /most populars/i })).toHaveStyle(
       {
-        'border-left': `0.7rem solid ${theme.colors.secondary}`
+        'border-left': `0.7rem solid ${theme.colors.primary}`
       }
     )
   })
@@ -50,6 +50,57 @@ describe('<Heading />', () => {
     expect(
       screen.getByRole('heading', { name: /most populars/i })
     ).toHaveStyleRule('border-bottom', `0.5rem solid ${theme.colors.primary}`, {
+      modifier: '::after'
+    })
+  })
+
+  it('should render a heading with a small size', () => {
+    renderWithTheme(<Heading size="small">Most Populars</Heading>)
+
+    expect(screen.getByRole('heading', { name: /most populars/i })).toHaveStyle(
+      {
+        'font-size': theme.font.sizes.medium
+      }
+    )
+    expect(
+      screen.getByRole('heading', { name: /most populars/i })
+    ).toHaveStyleRule('width', '3rem', {
+      modifier: '::after'
+    })
+  })
+
+  it('should render a Heading with a primary line color', () => {
+    renderWithTheme(
+      <Heading lineColor="primary" lineLeft lineBottom>
+        Lorem Ipsum
+      </Heading>
+    )
+
+    const heading = screen.getByRole('heading', { name: /lorem ipsum/i })
+    expect(heading).toHaveStyle({
+      'border-left': `0.7rem solid ${theme.colors.primary}`
+    })
+    expect(heading).toHaveStyleRule(
+      'border-bottom',
+      `0.5rem solid ${theme.colors.primary}`,
+      {
+        modifier: '::after'
+      }
+    )
+  })
+
+  it('should render a Heading with a secondary line color', () => {
+    renderWithTheme(
+      <Heading lineColor="secondary" lineLeft lineBottom>
+        Lorem Ipsum
+      </Heading>
+    )
+
+    const heading = screen.getByRole('heading', { name: /lorem ipsum/i })
+    expect(heading).toHaveStyle({
+      'border-left': `0.7rem solid ${theme.colors.secondary}`
+    })
+    expect(heading).toHaveStyleRule('border-bottom', '0.5rem solid #3CD3C1', {
       modifier: '::after'
     })
   })
