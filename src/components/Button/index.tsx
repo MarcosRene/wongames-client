@@ -4,10 +4,13 @@ import * as S from './styles'
 
 const Button = ({
   children,
+  icon,
   size = 'medium',
-  fullWidth = false
+  fullWidth = false,
+  ...props
 }: ButtonProps) => (
-  <S.Wrapper size={size} fullWidth={fullWidth}>
+  <S.Wrapper size={size} fullWidth={fullWidth} hasIcon={!!icon} {...props}>
+    {icon}
     {!!children && <span>{children}</span>}
   </S.Wrapper>
 )
