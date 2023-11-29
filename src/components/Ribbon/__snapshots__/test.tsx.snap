@@ -8,8 +8,11 @@ exports[`<Ribbon /> should render the text correctly 1`] = `
   color: #FAFAFA;
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
+  z-index: 1;
+  padding: 0 2.4rem;
   height: 3.6rem;
+  right: -2rem;
+  font-size: 1.4rem;
   background-color: #F231A5;
 }
 
@@ -22,6 +25,12 @@ exports[`<Ribbon /> should render the text correctly 1`] = `
   border-right-color: transparent;
   border-bottom-color: transparent;
   border-bottom-width: 1rem;
+}
+
+.c0::before {
+  top: 3.6rem;
+  border-top-width: 1rem;
+  border-right-width: 2rem;
 }
 
 .c0::before {
