@@ -15,7 +15,8 @@ export default {
     price: 'R$ 235,00'
   },
   argTypes: {
-    onFav: { action: 'clicked' }
+    onFav: { action: 'clicked' },
+    ribbon: { type: 'string' }
   },
   parameters: {
     backgrounds: {
@@ -42,4 +43,17 @@ export const WithPromotionalPrice: StoryFn<GameCardProps> = (args) => (
 
 WithPromotionalPrice.args = {
   promotionalPrice: 'R$ 200,00'
+}
+
+export const WithRibbon: StoryFn<GameCardProps> = (args) => (
+  <Container>
+    <GameCard {...args} />
+  </Container>
+)
+
+WithRibbon.args = {
+  promotionalPrice: 'R$ 215,00',
+  ribbon: '20% OFF',
+  ribbonSize: 'small',
+  ribbonColor: 'primary'
 }

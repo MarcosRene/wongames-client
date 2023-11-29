@@ -6,4 +6,7 @@ export type GameCardProps = {
   promotionalPrice?: string
   favorite?: boolean
   onFav?: () => void
+  ribbon?: React.ReactNode
+  ribbonColor?: 'primary' | 'secondary'
+  ribbonSize?: 'small' | 'normal'
 }
