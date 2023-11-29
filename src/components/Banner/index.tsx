@@ -1,4 +1,7 @@
+import Image from 'next/image'
+
 import Button from '../Button'
+import Ribbon from '../Ribbon'
 
 import { BannerProps } from './types'
 
@@ -9,10 +12,21 @@ const Banner = ({
   title,
   subtitle,
   buttonLabel,
-  buttonLink
+  buttonLink,
+  ribbon,
+  ribbonColor = 'primary',
+  ribbonSize = 'normal'
 }: BannerProps) => (
   <S.Wrapper>
-    <S.Image src={img} role="img" aria-label={title} />
+    {!!ribbon && (
+      <Ribbon color={ribbonColor} size={ribbonSize}>
+        {ribbon}
+      </Ribbon>
+    )}
+
+    <S.ImageWrapper>
+      <Image src={img} alt={title} layout="fill" objectFit="cover" />
+    </S.ImageWrapper>
 
     <S.Caption>
       <S.Title>{title}</S.Title>

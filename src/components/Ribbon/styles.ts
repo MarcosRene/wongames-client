@@ -50,6 +50,7 @@ export const Wrapper = styled.div<Omit<RibbonProps, 'children'>>`
     color: ${theme.colors.white};
     display: flex;
     align-items: center;
+    z-index: 1;
 
     &::before {
       content: '';
