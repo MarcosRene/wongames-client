@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import styled from 'styled-components'
 
 import Banner from '.'
@@ -26,13 +26,13 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
-export const Default = (args: BannerProps) => (
+export const Default: StoryFn<BannerProps> = (args) => (
   <Container>
     <Banner {...args} />
   </Container>
 )
 
-export const WithRibbon = (args: BannerProps) => (
+export const WithRibbon: StoryFn<BannerProps> = (args: BannerProps) => (
   <Container>
     <Banner {...args} />
   </Container>
