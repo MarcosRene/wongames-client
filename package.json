@@ -62,6 +62,5 @@
     "styled-components": "^6.0.8",
     "styled-media-query": "^2.1.2",
     "typescript": "latest"
-  },
-  "packageManager": "yarn@4.0.1"
+  }
 }
