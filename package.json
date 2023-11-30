@@ -23,7 +23,8 @@
     "@styled-icons/remix-fill": "^10.46.0",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-slick": "^0.29.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.20",
@@ -44,6 +45,7 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-slick": "^0.23.12",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
     "eslint": "latest",
