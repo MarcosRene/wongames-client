@@ -56,7 +56,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'dark'
+      default: 'won-dark'
     }
   }
 } as Meta
@@ -72,4 +72,6 @@ export const Default: StoryObj = (args: GameCardProps[]) => (
   </Container>
 )
 
-Default.args = {}
+Default.args = {
+  color: 'white'
+}
