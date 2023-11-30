@@ -1,8 +1,7 @@
-import { Meta, StoryFn } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 
 import { HighlightProps } from './types'
-
 import Highlight from '.'
 
 export default {
@@ -13,21 +12,24 @@ export default {
     subtitle: 'Come see John’s new adventures',
     backgroundImage: '/img/red-dead-img.jpg',
     buttonLabel: 'Buy now',
-    buttonLink: '/games/rdr2'
+    buttonLink: '/games/rdr2',
+    alignment: 'right'
   }
-} as Meta<HighlightProps>
+} as Meta
 
 const Container = styled.div`
   max-width: 104rem;
 `
 
-export const Default: StoryFn<HighlightProps> = (args) => (
+export const Default: StoryObj = (args: HighlightProps) => (
   <Container>
     <Highlight {...args} />
   </Container>
 )
 
-export const WithFloatImage: StoryFn<HighlightProps> = (args) => (
+Default.args = {}
+
+export const WithFloatImage: StoryObj = (args: HighlightProps) => (
   <Container>
     <Highlight {...args} />
   </Container>

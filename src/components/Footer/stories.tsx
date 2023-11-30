@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import Footer from '.'
 
@@ -9,8 +9,10 @@ export default {
   component: Footer
 } as Meta
 
-export const Default: StoryFn = () => (
+export const Default: StoryObj = () => (
   <S.WrapperStory>
     <Footer />
   </S.WrapperStory>
 )
+
+Default.args = {}

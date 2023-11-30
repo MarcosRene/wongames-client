@@ -1,8 +1,7 @@
-import { Meta, StoryFn } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 
 import { GameCardProps } from './types'
-
 import GameCard from '.'
 
 export default {
@@ -23,19 +22,21 @@ export default {
       default: 'dark'
     }
   }
-} as Meta
+} as Meta<typeof GameCard>
 
 const Container = styled.div`
   width: 30rem;
 `
 
-export const Default: StoryFn<GameCardProps> = (args) => (
+export const Default: StoryObj = (args: GameCardProps) => (
   <Container>
     <GameCard {...args} />
   </Container>
 )
 
-export const WithPromotionalPrice: StoryFn<GameCardProps> = (args) => (
+Default.args = {}
+
+export const WithPromotionalPrice: StoryObj = (args: GameCardProps) => (
   <Container>
     <GameCard {...args} />
   </Container>
@@ -45,7 +46,7 @@ WithPromotionalPrice.args = {
   promotionalPrice: 'R$ 200,00'
 }
 
-export const WithRibbon: StoryFn<GameCardProps> = (args) => (
+export const WithRibbon: StoryObj = (args: GameCardProps) => (
   <Container>
     <GameCard {...args} />
   </Container>

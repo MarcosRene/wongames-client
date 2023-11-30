@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 
 import { RibbonProps } from './types'
@@ -18,7 +18,7 @@ export default {
       type: 'string'
     }
   }
-} as Meta<RibbonProps>
+} as Meta
 
 const Container = styled.div`
   width: 40rem;
@@ -27,8 +27,10 @@ const Container = styled.div`
   background-color: #888;
 `
 
-export const Default: StoryFn<RibbonProps> = (args) => (
+export const Default: StoryObj = (args: RibbonProps) => (
   <Container>
     <Ribbon {...args} />
   </Container>
 )
+
+Default.args = {}
