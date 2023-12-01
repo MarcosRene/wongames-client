@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
-import Button from '../Button'
-import Ribbon from '../Ribbon'
+import Button from 'components/Button'
+import Ribbon from 'components/Ribbon'
 
 import { BannerProps } from './types'
 

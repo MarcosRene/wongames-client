@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { fireEvent } from '@testing-library/react'
 
-import { renderWithTheme } from '../../utils/tests'
+import { renderWithTheme } from 'utils/tests'
 
 import Menu from '.'
 

@@ -230,7 +230,7 @@ exports[`<Footer /> should render 4 column topics 1`] = `
         aria-labelledby="footer resources"
       >
         <a
-          href="/ "
+          href="/"
         >
           Home
         </a>

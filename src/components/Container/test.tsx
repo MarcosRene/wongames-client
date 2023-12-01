@@ -1,5 +1,5 @@
 import theme from '../../styles/theme'
-import { renderWithTheme } from '../../utils/tests'
+import { renderWithTheme } from 'utils/tests'
 
 import { Container } from '.'
 
