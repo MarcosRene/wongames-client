@@ -9,9 +9,9 @@ export default {
       type: 'string'
     }
   }
-} as Meta
+} as Meta<typeof Heading>
 
-export const Default: StoryObj = {
+export const Default: StoryObj<typeof Heading> = {
   args: {
     children: 'Most Populars'
   }

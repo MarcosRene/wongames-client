@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 
-import { BannerProps } from './types'
 import Banner from '.'
 
 export default {
@@ -26,19 +25,21 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
-export const Default: StoryObj = (args: BannerProps) => (
-  <Container>
-    <Banner {...args} />
-  </Container>
-)
+export const Default: StoryObj<typeof Banner> = {
+  render: (args) => (
+    <Container>
+      <Banner {...args} />
+    </Container>
+  )
+}
 
-Default.args = {}
-
-export const WithRibbon: StoryObj = (args: BannerProps) => (
-  <Container>
-    <Banner {...args} />
-  </Container>
-)
+export const WithRibbon: StoryObj<typeof Banner> = {
+  render: (args) => (
+    <Container>
+      <Banner {...args} />
+    </Container>
+  )
+}
 
 WithRibbon.args = {
   ribbon: '20% OFF',

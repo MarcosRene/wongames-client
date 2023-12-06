@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 
-import { GameCardProps } from './types'
 import GameCard from '.'
 
 export default {
@@ -28,29 +27,35 @@ const Container = styled.div`
   width: 30rem;
 `
 
-export const Default: StoryObj = (args: GameCardProps) => (
-  <Container>
-    <GameCard {...args} />
-  </Container>
-)
+export const Default: StoryObj<typeof GameCard> = {
+  render: (args) => (
+    <Container>
+      <GameCard {...args} />
+    </Container>
+  )
+}
 
 Default.args = {}
 
-export const WithPromotionalPrice: StoryObj = (args: GameCardProps) => (
-  <Container>
-    <GameCard {...args} />
-  </Container>
-)
+export const WithPromotionalPrice: StoryObj<typeof GameCard> = {
+  render: (args) => (
+    <Container>
+      <GameCard {...args} />
+    </Container>
+  )
+}
 
 WithPromotionalPrice.args = {
   promotionalPrice: 'R$ 200,00'
 }
 
-export const WithRibbon: StoryObj = (args: GameCardProps) => (
-  <Container>
-    <GameCard {...args} />
-  </Container>
-)
+export const WithRibbon: StoryObj<typeof GameCard> = {
+  render: (args) => (
+    <Container>
+      <GameCard {...args} />
+    </Container>
+  )
+}
 
 WithRibbon.args = {
   promotionalPrice: 'R$ 215,00',

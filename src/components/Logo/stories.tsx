@@ -4,9 +4,9 @@ import Logo from '.'
 export default {
   title: 'Logo',
   component: Logo
-} as Meta
+} as Meta<typeof Logo>
 
-export const Default: StoryObj = {
+export const Default: StoryObj<typeof Logo> = {
   args: {
     color: 'white'
   }

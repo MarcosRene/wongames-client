@@ -1,39 +1,36 @@
 import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 
-import { HighlightProps } from './types'
 import Highlight from '.'
+import { HighlightMock } from './mock'
 
 export default {
   title: 'Highlight',
   component: Highlight,
-  args: {
-    title: 'Read Dead it’s back',
-    subtitle: 'Come see John’s new adventures',
-    backgroundImage: '/img/red-dead-img.jpg',
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/rdr2',
-    alignment: 'right'
-  }
-} as Meta
+  args: HighlightMock
+} as Meta<typeof Highlight>
 
 const Container = styled.div`
   max-width: 104rem;
 `
 
-export const Default: StoryObj = (args: HighlightProps) => (
-  <Container>
-    <Highlight {...args} />
-  </Container>
-)
+export const Default: StoryObj<typeof Highlight> = {
+  render: (args) => (
+    <Container>
+      <Highlight {...args} />
+    </Container>
+  )
+}
 
 Default.args = {}
 
-export const WithFloatImage: StoryObj = (args: HighlightProps) => (
-  <Container>
-    <Highlight {...args} />
-  </Container>
-)
+export const WithFloatImage: StoryObj<typeof Highlight> = {
+  render: (args) => (
+    <Container>
+      <Highlight {...args} />
+    </Container>
+  )
+}
 
 WithFloatImage.args = {
   floatImage: '/img/red-dead-float.png'

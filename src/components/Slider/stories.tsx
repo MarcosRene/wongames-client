@@ -26,7 +26,7 @@ const Slide = styled.div`
   text-align: center;
 `
 
-export const Default: StoryObj = () => (
+export const Default: StoryObj<typeof Slider> = () => (
   <Slider settings={settings}>
     <Slide>1</Slide>
     <Slide>2</Slide>

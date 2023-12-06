@@ -10,6 +10,6 @@ export default {
       default: 'won-dark'
     }
   }
-} as Meta
+} as Meta<typeof Menu>
 
-export const Default: StoryObj = {}
+export const Default: StoryObj<typeof Menu> = {}

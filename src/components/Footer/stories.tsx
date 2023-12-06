@@ -1,18 +1,22 @@
 import { Meta, StoryObj } from '@storybook/react'
+import styled from 'styled-components'
 
 import Footer from '.'
-
-import * as S from './styles'
 
 export default {
   title: 'Footer',
   component: Footer
-} as Meta
+} as Meta<typeof Footer>
 
-export const Default: StoryObj = () => (
-  <S.WrapperStory>
-    <Footer />
-  </S.WrapperStory>
-)
+const Container = styled.div`
+  max-width: 130rem;
+  margin: 0 auto;
+`
 
-Default.args = {}
+export const Default: StoryObj<typeof Footer> = {
+  render: () => (
+    <Container>
+      <Footer />
+    </Container>
+  )
+}

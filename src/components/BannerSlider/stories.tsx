@@ -1,33 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 
-import { BannerSliderProps } from './types'
 import BannerSlider from '.'
-
-const items = [
-  {
-    img: 'https://source.unsplash.com/user/willianjusten/1042x580',
-    title: 'Defy death 1',
-    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/defy-death',
-    ribbon: 'Bestselling'
-  },
-  {
-    img: 'https://source.unsplash.com/user/willianjusten/1042x582',
-    title: 'Defy death 2',
-    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/defy-death'
-  },
-  {
-    img: 'https://source.unsplash.com/user/willianjusten/1042x581',
-    title: 'Defy death 3',
-    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
-    buttonLabel: 'Buy now',
-    buttonLink: '/games/defy-death'
-  }
-]
+import { SlidersMock as items } from './mock'
 
 export default {
   title: 'BannerSlider',
@@ -39,17 +14,17 @@ export default {
       default: 'won-dark'
     }
   }
-} as Meta
+} as Meta<typeof BannerSlider>
 
 const Container = styled.div`
   max-width: 130rem;
   margin: 0 auto;
 `
 
-export const Default: StoryObj = (args: BannerSliderProps) => (
-  <Container>
-    <BannerSlider {...args} />
-  </Container>
-)
-
-Default.args = {}
+export const Default: StoryObj<typeof BannerSlider> = {
+  render: (args) => (
+    <Container>
+      <BannerSlider {...args} />
+    </Container>
+  )
+}

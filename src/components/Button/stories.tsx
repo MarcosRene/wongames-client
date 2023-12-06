@@ -14,15 +14,15 @@ export default {
       type: 'function'
     }
   }
-} as Meta
+} as Meta<typeof Button>
 
-export const Default: StoryObj = {
+export const Default: StoryObj<typeof Button> = {
   args: {
     children: 'Buy now'
   }
 }
 
-export const withIcon: StoryObj = {
+export const withIcon: StoryObj<typeof Button> = {
   args: {
     size: 'small',
     children: 'Buy now',
@@ -30,7 +30,7 @@ export const withIcon: StoryObj = {
   }
 }
 
-export const Link: StoryObj = {
+export const Link: StoryObj<typeof Button> = {
   args: {
     size: 'large',
     children: 'Buy now',
