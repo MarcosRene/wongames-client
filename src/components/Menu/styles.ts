@@ -85,7 +85,7 @@ export const MenuLink = styled.a`
 
 export const MenuFull = styled.nav<StylesProps>`
   ${({ theme, isOpen }) => css`
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -99,6 +99,8 @@ export const MenuFull = styled.nav<StylesProps>`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    z-index: ${theme.layers.menu};
 
     > svg {
       position: absolute;

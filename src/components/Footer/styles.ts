@@ -49,8 +49,3 @@ export const Copyright = styled.div`
     text-align: center;
   `}
 `
-
-export const WrapperStory = styled.div`
-  max-width: 130rem;
-  margin: 0 auto;
-`

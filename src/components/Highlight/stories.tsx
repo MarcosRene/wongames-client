@@ -2,12 +2,12 @@ import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 
 import Highlight from '.'
-import { HighlightMock } from './mock'
+import { highLightMock } from './mock'
 
 export default {
   title: 'Highlight',
   component: Highlight,
-  args: HighlightMock
+  args: highLightMock
 } as Meta<typeof Highlight>
 
 const Container = styled.div`

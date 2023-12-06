@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 
 import BannerSlider from '.'
-import { SlidersMock as items } from './mock'
+import { bannersMock as items } from './mock'
 
 export default {
   title: 'BannerSlider',

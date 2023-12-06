@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 
 import GameCardSlider from '.'
-import { GameCardSliderMock as items } from './mock'
+import { gamesMock as items } from './mock'
 
 export default {
   title: 'GameCardSlider',

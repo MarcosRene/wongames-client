@@ -1,4 +1,4 @@
-export const GameCardSliderMock = [
+export const gamesMock = [
   {
     title: 'Population Zero',
     developer: 'Rockstar Games',
