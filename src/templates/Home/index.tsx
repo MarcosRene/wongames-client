@@ -21,7 +21,7 @@ const Home = ({
   freeGames,
   freeHighligth
 }: HomeTemplateProps) => (
-  <>
+  <section>
     <Container>
       <Menu />
 
@@ -30,17 +30,15 @@ const Home = ({
       </S.SectionBanner>
     </Container>
 
-    <Container>
-      <Heading lineLeft lineColor="secondary" color="black">
-        News
-      </Heading>
+    <S.SectionNews>
+      <Container>
+        <Heading lineLeft lineColor="secondary" color="black">
+          News
+        </Heading>
 
-      <S.SectionNews>
-        <Container>
-          <GameCardSlider items={newGames} color="black" />
-        </Container>
-      </S.SectionNews>
-    </Container>
+        <GameCardSlider items={newGames} color="black" />
+      </Container>
+    </S.SectionNews>
 
     <Container>
       <S.SectionMostPopular>
@@ -54,11 +52,10 @@ const Home = ({
     </Container>
 
     <Container>
-      <Heading lineLeft lineColor="secondary">
-        Upcomming
-      </Heading>
-
       <S.SectionUpcoming>
+        <Heading lineLeft lineColor="secondary">
+          Upcomming
+        </Heading>
         <GameCardSlider items={upcommingGames} />
         <Highlight {...upcommingHighligth} />
         <GameCardSlider items={upcommingMoreGames} />
@@ -81,7 +78,7 @@ const Home = ({
         <Footer />
       </Container>
     </S.SectionFooter>
-  </>
+  </section>
 )
 
 export default Home
