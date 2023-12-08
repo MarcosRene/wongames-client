@@ -38,3 +38,11 @@ export const Link: StoryObj<typeof Button> = {
     href: '/link'
   }
 }
+
+export const Minimal: StoryObj<typeof Button> = {
+  args: {
+    children: 'Buy now',
+    icon: <AddShoppingCart />,
+    minimal: true
+  }
+}

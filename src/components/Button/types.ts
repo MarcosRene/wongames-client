@@ -15,9 +15,10 @@ export type ButtonProps = {
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
   as?: ElementType
+  minimal?: boolean
 } & ButtonTypes
 
 export type StylesProps = { hasIcon: boolean } & Pick<
   ButtonProps,
-  'size' | 'fullWidth'
+  'size' | 'fullWidth' | 'minimal'
 >

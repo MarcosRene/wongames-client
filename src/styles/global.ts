@@ -63,5 +63,9 @@ export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
         background-color: ${theme.colors.mainBg};
       `}
     }
+
+    button {
+      cursor: pointer;
+    }
   `}
 `
