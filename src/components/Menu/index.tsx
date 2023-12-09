@@ -10,7 +10,7 @@ import Button from '../Button'
 import Logo from '../Logo'
 import MediaMatch from '../MediaMatch'
 
-import { MenuProps } from './type'
+import { MenuProps } from './types'
 
 import * as S from './styles'
 

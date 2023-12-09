@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import { StylesProps } from './type'
+import { StyleProps } from './types'
 
 export const Wrapper = styled.main`
   ${({ theme }) => css`
@@ -83,7 +83,7 @@ export const MenuLink = styled.a`
   `}
 `
 
-export const MenuFull = styled.nav<StylesProps>`
+export const MenuFull = styled.nav<StyleProps>`
   ${({ theme, isOpen }) => css`
     position: fixed;
     top: 0;

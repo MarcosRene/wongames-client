@@ -9,27 +9,37 @@ exports[`<GameCard /> should render correctly 1`] = `
 
 .c10 {
   padding: 0.8rem;
-  background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
+  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
   border: 0;
   border-radius: 0.4rem;
+  -webkit-text-decoration: none;
   text-decoration: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   height: 3rem;
   font-size: 1.2rem;
 }
 
 .c10:hover {
-  background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
 .c10 svg {
   width: 1.5rem;
 }
 
-.c10 svg+span {
+.c10 svg + span {
   margin-left: 0.8rem;
 }
 
@@ -38,7 +48,12 @@ exports[`<GameCard /> should render correctly 1`] = `
   width: 100%;
   height: 100%;
   background-color: #FAFAFA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -46,8 +61,9 @@ exports[`<GameCard /> should render correctly 1`] = `
   height: 14rem;
   width: 100%;
   background: #f6f7f8;
-  background-image: linear-gradient(     to right,     #f6f7f8 0%,     #edeef1 20%,     #f6f7f8 40%,     #f6f7f8 100%   );
+  background-image: linear-gradient( to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100% );
   background-size: 80rem 14rem;
+  -webkit-animation: placeholderShimmer 1s linear infinite forwards;
   animation: placeholderShimmer 1s linear infinite forwards;
 }
 
@@ -61,8 +77,16 @@ exports[`<GameCard /> should render correctly 1`] = `
   position: relative;
   height: 100%;
   margin: 1.6rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -97,15 +121,30 @@ exports[`<GameCard /> should render correctly 1`] = `
 
 .c8 {
   margin-top: 0.8rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
 .c9 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   font-weight: 600;
   height: 3rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-right: calc(0.8rem / 2);
   padding: 0 0.8rem;

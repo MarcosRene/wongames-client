@@ -6,7 +6,13 @@ exports[`<Ribbon /> should render the text correctly 1`] = `
   top: 1.6rem;
   font-weight: 600;
   color: #FAFAFA;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   z-index: 1;
   padding: 0 2.4rem;

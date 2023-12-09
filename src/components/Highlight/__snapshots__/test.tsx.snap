@@ -17,7 +17,7 @@ exports[`<Highlight /> should render headings and button 1`] = `
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0,0,0,0.6);
 }
 
 .c0 .c1 {
@@ -45,13 +45,23 @@ exports[`<Highlight /> should render headings and button 1`] = `
 
 .c5 {
   padding: 0.8rem;
-  background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
+  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
   border: 0;
   border-radius: 0.4rem;
+  -webkit-text-decoration: none;
   text-decoration: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   height: 4rem;
   font-size: 1.4rem;
@@ -59,37 +69,37 @@ exports[`<Highlight /> should render headings and button 1`] = `
 }
 
 .c5:hover {
-  background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .c0 {
     height: 32rem;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .c2 {
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
     align-self: flex-end;
     padding: 4.0rem;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .c3 {
     font-size: 2.8rem;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .c4 {
     font-size: 1.8rem;
   }
 }
 
 <section
-  alignment="right"
-  backgroundimage="/img/red-dead-img.jpg"
   class="c0"
 >
   <div
