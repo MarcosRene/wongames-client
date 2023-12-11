@@ -26,7 +26,7 @@ const Container = styled.div`
   padding: 1rem;
 
   div + div {
-    margin-top: 0.8rem;
+    margin-top: 1.6rem;
   }
 `
 
