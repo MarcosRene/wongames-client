@@ -21,5 +21,6 @@ module.exports = {
   moduleNameMapper: {
     '^styled-components':
       'styled-components/dist/styled-components.browser.cjs.js'
-  }
+  },
+  prettierPath: null
 }
