@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Checkbox from '.'
 
 export default {
-  title: 'Checkbox',
+  title: 'Form/Checkbox',
   component: Checkbox,
   args: {
     label: 'Checkbox',
