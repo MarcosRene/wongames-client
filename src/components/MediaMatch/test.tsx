@@ -27,7 +27,7 @@ describe('<MediaMatch />', () => {
     expect(mobileHeading.parentElement).toHaveStyleRule('display', 'none')
   })
 
-  xit('should be show or hide based on the media passed', () => {
+  it('should be show or hide based on the media passed', () => {
     expect(desktopHeading.parentElement).toHaveStyleRule('display', 'block', {
       media: '(min-width: 768px)'
     })

@@ -62,7 +62,7 @@ describe('<TextField />', () => {
     expect(onInput).toHaveBeenCalledWith(text)
   })
 
-  xit('Does not changes its value when disabled', async () => {
+  it('Does not changes its value when disabled', async () => {
     const onInput = jest.fn()
     renderWithTheme(
       <TextField
@@ -114,7 +114,7 @@ describe('<TextField />', () => {
     expect(input).toHaveFocus()
   })
 
-  xit('Is not accessible by tab when disabled', () => {
+  it('Is not accessible by tab when disabled', () => {
     renderWithTheme(
       <TextField
         label="TextField"
