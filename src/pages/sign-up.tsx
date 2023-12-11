@@ -1,5 +1,11 @@
+import FormSignUp from 'components/FormSignUp'
+
 import Auth from 'templates/Auth'
 
 export default function SignUp() {
-  return <Auth title="SignUp">SignUp</Auth>
+  return (
+    <Auth title="SignUp">
+      <FormSignUp />
+    </Auth>
+  )
 }
