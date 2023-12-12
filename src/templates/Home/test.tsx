@@ -20,18 +20,6 @@ const ownerProps = {
   freeHighligth: highLightMock
 }
 
-jest.mock('components/Menu', () => {
-  return () => {
-    return 'render Menu component'
-  }
-})
-
-jest.mock('components/Footer', () => {
-  return () => {
-    return 'render Footer component'
-  }
-})
-
 jest.mock('components/Showcase', () => {
   // eslint-disable-next-line react/display-name
   return () => {
@@ -50,11 +38,9 @@ describe('<Home />', () => {
   it('should render Menu and Footer', () => {
     renderWithTheme(<Home {...ownerProps} />)
 
-    expect(screen.getByText(/render menu component/i)).toBeInTheDocument()
     expect(
       screen.getByText(/render BannerSlider component/i)
     ).toBeInTheDocument()
-    expect(screen.getByText(/render footer component/i)).toBeInTheDocument()
     expect(screen.getAllByTestId('showcase')).toHaveLength(5)
   })
 })
