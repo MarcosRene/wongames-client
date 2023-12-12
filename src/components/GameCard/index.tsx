@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import {
   AddShoppingCart,
   Favorite,
@@ -31,7 +32,7 @@ const GameCard = ({
     )}
 
     <S.ImageBox>
-      <img src={img} alt={title} />
+      <Image src={img} alt={title} layout="fill" objectFit="cover" />
     </S.ImageBox>
 
     <S.Content>
