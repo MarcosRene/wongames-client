@@ -12,7 +12,9 @@ const Auth = ({ title, children }: AuthProps) => (
     <S.BannerBlock>
       <S.BannerContent>
         <Link href="/">
-          <Logo id="banner" />
+          <a>
+            <Logo id="banner" />
+          </a>
         </Link>
 
         <div>
@@ -29,7 +31,9 @@ const Auth = ({ title, children }: AuthProps) => (
     <S.BannerContainer>
       <S.BannerContainerWrapper>
         <Link href="/">
-          <Logo id="form" color="black" size="large" />
+          <a>
+            <Logo id="form" color="black" size="large" />
+          </a>
         </Link>
 
         <Heading color="black" lineColor="secondary" lineLeft>
