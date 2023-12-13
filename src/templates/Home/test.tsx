@@ -4,20 +4,20 @@ import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests'
 import Home from '.'
 
-import { bannersMock } from 'components/BannerSlider/mock'
-import { gamesMock } from 'components/GameCardSlider/mock'
-import { highLightMock } from 'components/Highlight/mock'
+import bannersMock from 'components/BannerSlider/mock'
+import gamesMock from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
 
 const ownerProps = {
   banners: bannersMock,
   newGames: [gamesMock[0]],
-  mostPopularHighlight: highLightMock,
+  mostPopularHighlight: highlightMock,
   mostPopularGames: [gamesMock[0]],
   upcommingGames: [gamesMock[0]],
-  upcommingHighligth: highLightMock,
+  upcommingHighligth: highlightMock,
   upcommingMoreGames: [gamesMock[0]],
   freeGames: [gamesMock[0]],
-  freeHighligth: highLightMock
+  freeHighligth: highlightMock
 }
 
 jest.mock('components/Showcase', () => {

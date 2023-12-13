@@ -6,12 +6,7 @@ import textMock from './mock'
 export default {
   title: 'TextContent',
   component: TextContent,
-  args: textMock,
-  parameters: {
-    backgrounds: {
-      default: 'won-dark'
-    }
-  }
+  args: textMock
 } as Meta<typeof TextContent>
 
 export const Default: StoryObj<typeof TextContent> = {}

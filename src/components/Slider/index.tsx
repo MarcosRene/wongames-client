@@ -1,13 +1,19 @@
+import { ForwardRefRenderFunction, forwardRef } from 'react'
 import SlickSlider from 'react-slick'
 
 import { SliderProps } from './types'
 
 import * as S from './styles'
 
-const Slider = ({ children, settings }: SliderProps) => (
+const Slider: ForwardRefRenderFunction<SlickSlider, SliderProps> = (
+  { children, settings },
+  ref
+) => (
   <S.Wrapper>
-    <SlickSlider {...settings}>{children}</SlickSlider>
+    <SlickSlider ref={ref} {...settings}>
+      {children}
+    </SlickSlider>
   </S.Wrapper>
 )
 
-export default Slider
+export default forwardRef(Slider)

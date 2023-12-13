@@ -7,10 +7,7 @@ export default {
   title: 'Form/Radio',
   component: Radio,
   parameters: {
-    layout: 'fullscreen',
-    backgrounds: {
-      default: 'won-dark'
-    }
+    layout: 'fullscreen'
   },
   argTypes: {
     onCheck: { action: 'checked' }

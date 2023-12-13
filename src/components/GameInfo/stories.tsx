@@ -8,11 +8,6 @@ import { gameInfoMock } from './mock'
 export default {
   title: 'Game/GameInfo',
   component: GameInfo,
-  parameters: {
-    backgrounds: {
-      default: 'won-dark'
-    }
-  },
   args: gameInfoMock
 } as Meta<typeof GameInfo>
 

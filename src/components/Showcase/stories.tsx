@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 import Showcase from '.'
 
-import { highLightMock } from 'components/Highlight/mock'
-import { gamesMock } from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
+import gamesMock from 'components/GameCardSlider/mock'
 
 export default {
   title: 'Showcase',
@@ -17,10 +17,7 @@ export default {
     )
   ],
   parameters: {
-    layout: 'fullscreen',
-    backgrounds: {
-      default: 'won-dark'
-    }
+    layout: 'fullscreen'
   }
 } as Meta<typeof Showcase>
 
@@ -31,7 +28,7 @@ const Container = styled.div`
 export const Default: StoryObj<typeof Showcase> = {
   args: {
     title: 'Most Popular',
-    highlight: highLightMock,
+    highlight: highlightMock,
     games: gamesMock
   }
 }
@@ -46,6 +43,6 @@ export const WithoutHighlight: StoryObj<typeof Showcase> = {
 export const WithoutGames: StoryObj<typeof Showcase> = {
   args: {
     title: 'Most Popular',
-    highlight: highLightMock
+    highlight: highlightMock
   }
 }

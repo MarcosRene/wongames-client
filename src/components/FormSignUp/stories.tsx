@@ -5,7 +5,12 @@ import FormSignUp from '.'
 
 export default {
   title: 'Form/FormSignUp',
-  component: FormSignUp
+  component: FormSignUp,
+  parameters: {
+    backgrounds: {
+      default: 'won-light'
+    }
+  }
 } as Meta<typeof FormSignUp>
 
 const Container = styled.div`

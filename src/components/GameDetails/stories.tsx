@@ -3,16 +3,11 @@ import styled from 'styled-components'
 
 import GameDetails from '.'
 
-import { gamesDetailsMock } from './mock'
+import gamesDetailsMock from './mock'
 
 export default {
   title: 'Game/GameDetails',
   component: GameDetails,
-  parameters: {
-    backgrounds: {
-      default: 'won-dark'
-    }
-  },
   args: gamesDetailsMock,
   argTypes: {
     releaseDate: {

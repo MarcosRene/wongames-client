@@ -2,9 +2,9 @@ import { HomeTemplateProps } from 'templates/Home/types'
 
 import Home from 'templates/Home'
 
-import { bannersMock } from 'components/BannerSlider/mock'
-import { gamesMock } from 'components/GameCardSlider/mock'
-import { highLightMock } from 'components/Highlight/mock'
+import bannersMock from 'components/BannerSlider/mock'
+import gamesMock from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
 
 export default function PageRoot(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -15,13 +15,13 @@ export function getServerSideProps() {
     props: {
       banners: bannersMock,
       newGames: gamesMock,
-      mostPopularHighlight: highLightMock,
+      mostPopularHighlight: highlightMock,
       mostPopularGames: gamesMock,
       upcommingGames: gamesMock,
-      upcommingHighligth: highLightMock,
+      upcommingHighligth: highlightMock,
       upcommingMoreGames: gamesMock,
       freeGames: gamesMock,
-      freeHighligth: highLightMock
+      freeHighligth: highlightMock
     }
   }
 }

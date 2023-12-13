@@ -7,6 +7,11 @@ import TextField from '.'
 export default {
   title: 'Form/TextField',
   component: TextField,
+  parameters: {
+    backgrounds: {
+      default: 'won-light'
+    }
+  },
   args: {
     label: 'E-mail',
     labelFor: 'Email',

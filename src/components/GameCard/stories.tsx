@@ -15,11 +15,6 @@ export default {
   argTypes: {
     onFav: { action: 'clicked' },
     ribbon: { type: 'string' }
-  },
-  parameters: {
-    backgrounds: {
-      default: 'won-dark'
-    }
   }
 } as Meta<typeof GameCard>
 

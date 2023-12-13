@@ -5,7 +5,12 @@ import Footer from '.'
 
 export default {
   title: 'Footer',
-  component: Footer
+  component: Footer,
+  parameters: {
+    backgrounds: {
+      default: 'won-light'
+    }
+  }
 } as Meta<typeof Footer>
 
 const Container = styled.div`

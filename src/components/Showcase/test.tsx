@@ -5,8 +5,8 @@ import { renderWithTheme } from 'utils/tests'
 
 import Showcase from '.'
 
-import { highLightMock as highlightMock } from 'components/Highlight/mock'
-import { gamesMock } from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
+import gamesMock from 'components/GameCardSlider/mock'
 
 const ownerProps = {
   title: 'Most Popular',
