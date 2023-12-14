@@ -6,10 +6,11 @@ import { StyleProps } from './types'
 export const Wrapper = styled.main`
   ${({ theme }) => css`
     position: relative;
+    padding: ${theme.spacings.small} 0;
+    z-index: ${theme.layers.menu};
 
     display: flex;
     align-items: center;
-    padding: ${theme.spacings.small} 0;
   `}
 `
 

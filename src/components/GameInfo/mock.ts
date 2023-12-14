@@ -1,4 +1,4 @@
-export const gameInfoMock = {
+export default {
   title: 'Borderlands 3',
   price: '215,00',
   description:

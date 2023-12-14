@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import GameInfo from '.'
 
-import { gameInfoMock } from './mock'
+import gameInfoMock from './mock'
 
 export default {
   title: 'Game/GameInfo',

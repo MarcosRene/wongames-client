@@ -13,9 +13,9 @@ const ownerProps = {
   newGames: [gamesMock[0]],
   mostPopularHighlight: highlightMock,
   mostPopularGames: [gamesMock[0]],
-  upcommingGames: [gamesMock[0]],
-  upcommingHighligth: highlightMock,
-  upcommingMoreGames: [gamesMock[0]],
+  UpcomingGames: [gamesMock[0]],
+  UpcomingHighligth: highlightMock,
+  UpcomingMoreGames: [gamesMock[0]],
   freeGames: [gamesMock[0]],
   freeHighligth: highlightMock
 }

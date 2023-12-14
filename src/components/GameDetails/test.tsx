@@ -11,7 +11,7 @@ const ownerProps: GameDetailsProps = {
   releaseDate: '2020-11-21T23:00:00',
   rating: 'BR0',
   genres: ['Role-playing', 'Narrative'],
-  publisher: 'Walkabout'
+  publisher: 'Walktrough'
 }
 
 describe('<GameDetails />', () => {
@@ -47,6 +47,18 @@ describe('<GameDetails />', () => {
     expect(screen.getByRole('img', { name: /windows/i })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /linux/i })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /mac/i })).toBeInTheDocument()
+  })
+
+  it('should render the developer', () => {
+    renderWithTheme(<GameDetails {...ownerProps} />)
+
+    expect(screen.getByText(/different tales/i)).toBeInTheDocument()
+  })
+
+  it('should render the publisher', () => {
+    renderWithTheme(<GameDetails {...ownerProps} />)
+
+    expect(screen.getByText(/walktrough/i)).toBeInTheDocument()
   })
 
   it('should render free rating when BR0', () => {
