@@ -13,8 +13,8 @@ export async function getStaticProps() {
   return {
     props: {
       games: gamesMock,
-      recommededGames: gamesMock,
-      recommededHighlight: highlightMock
+      recommendedGames: gamesMock,
+      recommendedHighlight: highlightMock
     }
   }
 }

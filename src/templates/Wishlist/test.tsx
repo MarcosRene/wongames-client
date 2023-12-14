@@ -8,8 +8,8 @@ import highlightMock from 'components/Highlight/mock'
 
 const ownerProps = {
   games: gamesMock,
-  recommededGames: gamesMock,
-  recommededHighlight: highlightMock
+  recommendedGames: gamesMock,
+  recommendedHighlight: highlightMock
 }
 
 jest.mock('components/Showcase', () => {
@@ -29,5 +29,20 @@ describe('<Wishlist />', () => {
 
     expect(screen.getAllByText(/population zero/i)).toHaveLength(6)
     expect(screen.getByTestId('showcase')).toBeInTheDocument()
+  })
+
+  it('should render empty when there are no games', () => {
+    renderWithTheme(
+      <Wishlist
+        recommendedGames={gamesMock}
+        recommendedHighlight={highlightMock}
+      />
+    )
+
+    expect(screen.queryByText(/population zero/i)).not.toBeInTheDocument()
+
+    expect(
+      screen.getByRole('heading', { name: /your wishlist is empty/i })
+    ).toBeInTheDocument()
   })
 })
