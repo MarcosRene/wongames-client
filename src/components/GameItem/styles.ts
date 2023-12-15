@@ -80,12 +80,14 @@ export const DownloadLink = styled.a`
 
 export const PaymentContent = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.gray};
-    font-size: ${theme.font.sizes.small};
-    display: flex;
-    flex-direction: column;
     min-width: 28rem;
     margin-top: ${theme.spacings.xsmall};
+    font-size: ${theme.font.sizes.small};
+    color: ${theme.colors.gray};
+
+    display: flex;
+    flex-direction: column;
+
     ${media.greaterThan('medium')`
       margin-top: 0;
       flex: 1;

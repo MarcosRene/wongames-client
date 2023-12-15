@@ -6,6 +6,7 @@ import * as S from './styles'
 const Button: ForwardRefRenderFunction<StylesProps, ButtonProps> = (
   {
     children,
+    as = 'button',
     icon,
     size = 'medium',
     fullWidth = false,
@@ -15,6 +16,7 @@ const Button: ForwardRefRenderFunction<StylesProps, ButtonProps> = (
   ref
 ) => (
   <S.Wrapper
+    as={as}
     size={size}
     fullWidth={fullWidth}
     hasIcon={!!icon}
