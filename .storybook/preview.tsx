@@ -1,5 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
+import { themes } from '@storybook/theming'
 
 import { GlobalStyles } from '../src/styles/global'
 import theme from '../src/styles/theme'
@@ -17,6 +18,9 @@ export const parameters = {
         value: theme.colors.mainBg
       }
     ]
+  },
+  docs: {
+    theme: themes.dark
   }
 }
 
