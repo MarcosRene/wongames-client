@@ -14,8 +14,7 @@ export default {
   },
   args: {
     label: 'E-mail',
-    labelFor: 'Email',
-    id: 'Email',
+    name: 'email',
     icon: <Email />,
     iconPosition: 'left',
     initialValue: '',

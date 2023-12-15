@@ -1,7 +1,12 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import { TextFieldProps } from './types'
 
-type StyleProps = Pick<TextFieldProps, 'iconPosition' | 'disabled' | 'error'>
+type StyleProps = Pick<
+  TextFieldProps,
+  'iconPosition' | 'disabled' | 'error'
+> & {
+  icon?: React.ReactNode
+}
 
 const wrapperModifiers = {
   disabled: (theme: DefaultTheme) => css`
@@ -67,10 +72,12 @@ export const ErrorMessage = styled.p`
 `
 
 export const Input = styled.input<StyleProps>`
-  ${({ theme, iconPosition }) => css`
+  ${({ theme, iconPosition, icon }) => css`
     width: 100%;
     padding: ${theme.spacings.xxsmall} 0;
-    padding-${iconPosition}: ${theme.spacings.xsmall};
+    padding-${iconPosition}:  ${
+      iconPosition && icon ? theme.spacings.xsmall : 0
+    };
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
     background: transparent;
