@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 import { Container } from 'components/Container'
 import media from 'styled-media-query'
@@ -13,6 +13,21 @@ export const Main = styled(Container)`
   `}
 `
 
+const floatTopToBottom = keyframes`
+  0% {
+    transform: translateY(0.8rem);
+    opacity: .5;
+  }
+  50% {
+    transform: translateY(-0.8rem);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0.8rem);
+    opacity: .5;
+  }
+`
+
 export const ShowMore = styled.div`
   ${({ theme }) => css`
     padding: ${theme.spacings.medium};
@@ -21,6 +36,8 @@ export const ShowMore = styled.div`
     text-align: center;
     text-transform: uppercase;
     cursor: pointer;
+
+    animation: ${floatTopToBottom} 2s forwards infinite;
 
     > svg {
       color: ${theme.colors.primary};
