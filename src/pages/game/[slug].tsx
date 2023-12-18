@@ -1,4 +1,4 @@
-import Game from 'templates/Game'
+import GameTemplate from 'templates/Game'
 
 import { GameTemplateProps } from 'templates/Game/types'
 
@@ -7,7 +7,7 @@ import galleryMock from 'components/Gallery/mock'
 import highlightMock from 'components/Highlight/mock'
 
 export default function Index(props: GameTemplateProps) {
-  return <Game {...props} />
+  return <GameTemplate {...props} />
 }
 
 export async function getStaticPaths() {

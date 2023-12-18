@@ -1,11 +1,11 @@
 import FormSignIn from 'components/FormSignIn'
 
-import Auth from 'templates/Auth'
+import AuthTemplate from 'templates/Auth'
 
 export default function SignIn() {
   return (
-    <Auth title="Sign In">
+    <AuthTemplate title="Sign In">
       <FormSignIn />
-    </Auth>
+    </AuthTemplate>
   )
 }

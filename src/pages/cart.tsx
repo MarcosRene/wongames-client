@@ -1,4 +1,4 @@
-import Cart from 'templates/Cart'
+import CartTemplate from 'templates/Cart'
 
 import { CartTemplateProps } from 'templates/Cart/types'
 
@@ -8,7 +8,7 @@ import cartListMock from 'components/CartList/mock'
 import optionsMock from 'components/PaymentOptions/mock'
 
 export default function CartPage(props: CartTemplateProps) {
-  return <Cart {...props} />
+  return <CartTemplate {...props} />
 }
 
 export async function getServerSideProps() {

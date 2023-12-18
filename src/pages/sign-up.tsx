@@ -1,11 +1,11 @@
 import FormSignUp from 'components/FormSignUp'
 
-import Auth from 'templates/Auth'
+import AuthTemplate from 'templates/Auth'
 
 export default function SignUp() {
   return (
-    <Auth title="SignUp">
+    <AuthTemplate title="SignUp">
       <FormSignUp />
-    </Auth>
+    </AuthTemplate>
   )
 }

@@ -2,13 +2,13 @@ import BannerSlider from 'components/BannerSlider'
 import { Container } from 'components/Container'
 import Showcase from 'components/Showcase'
 
-import Base from 'templates/Base'
+import BaseTemplate from 'templates/Base'
 
 import * as S from './styles'
 
 import { HomeTemplateProps } from './types'
 
-const Home = ({
+const HomeTemplate = ({
   banners,
   newGames,
   mostPopularHighlight,
@@ -19,7 +19,7 @@ const Home = ({
   freeGames,
   freeHighligth
 }: HomeTemplateProps) => (
-  <Base>
+  <BaseTemplate>
     <Container>
       <S.SectionBanner>
         <BannerSlider items={banners} />
@@ -43,7 +43,7 @@ const Home = ({
     </S.SectionUpcoming>
 
     <Showcase title="Free games" highlight={freeHighligth} games={freeGames} />
-  </Base>
+  </BaseTemplate>
 )
 
-export default Home
+export default HomeTemplate

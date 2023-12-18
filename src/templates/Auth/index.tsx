@@ -5,9 +5,9 @@ import Logo from 'components/Logo'
 
 import * as S from './styles'
 
-import { AuthProps } from './types'
+import { AuthTemplateProps } from './types'
 
-const Auth = ({ title, children }: AuthProps) => (
+const Auth = ({ title, children }: AuthTemplateProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <S.BannerContent>

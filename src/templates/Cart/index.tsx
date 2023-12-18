@@ -6,13 +6,13 @@ import Heading from 'components/Heading'
 import PaymentOptions from 'components/PaymentOptions'
 import Showcase from 'components/Showcase'
 
-import Base from 'templates/Base'
+import BaseTemplate from 'templates/Base'
 
 import * as S from './styles'
 
 import { CartTemplateProps } from './types'
 
-const Cart = ({
+const CartTemplate = ({
   recommendedGames,
   recommendedHighlight,
   items,
@@ -22,7 +22,7 @@ const Cart = ({
   const handlePayment = () => {}
 
   return (
-    <Base>
+    <BaseTemplate>
       <Container>
         <Heading lineLeft lineColor="secondary">
           My Cart
@@ -50,8 +50,8 @@ const Cart = ({
         games={recommendedGames}
         highlight={recommendedHighlight}
       />
-    </Base>
+    </BaseTemplate>
   )
 }
 
-export default Cart
+export default CartTemplate

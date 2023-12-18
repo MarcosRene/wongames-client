@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-export type AuthProps = {
+export type AuthTemplateProps = {
   title: string
   children: ReactNode
 }

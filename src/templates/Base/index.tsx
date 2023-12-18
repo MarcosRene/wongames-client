@@ -6,7 +6,7 @@ import * as S from './styles'
 
 import { BaseTemplateProps } from './types'
 
-const Base = ({ children }: BaseTemplateProps) => (
+const BaseTemplate = ({ children }: BaseTemplateProps) => (
   <S.Wrapper>
     <Container>
       <Menu />
@@ -22,4 +22,4 @@ const Base = ({ children }: BaseTemplateProps) => (
   </S.Wrapper>
 )
 
-export default Base
+export default BaseTemplate

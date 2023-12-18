@@ -1,6 +1,6 @@
 import OrderList from 'components/OrderList'
 
-import Profile from 'templates/Profile'
+import ProfileTemplate from 'templates/Profile'
 
 import { OrderListProps } from 'components/OrderList/types'
 
@@ -8,9 +8,9 @@ import ordersMock from 'components/OrderList/mock'
 
 export default function Index(props: OrderListProps) {
   return (
-    <Profile>
+    <ProfileTemplate>
       <OrderList {...props} />
-    </Profile>
+    </ProfileTemplate>
   )
 }
 

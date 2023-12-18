@@ -2,18 +2,18 @@ import { Container } from 'components/Container'
 import Heading from 'components/Heading'
 import ProfileMenu from 'components/ProfileMenu'
 
-import Base from 'templates/Base'
+import BaseTemplate from 'templates/Base'
 
 import { ProfileTemplateProps } from './types'
 
 import * as S from './styles'
 import { useRouter } from 'next/router'
 
-const Profile = ({ children }: ProfileTemplateProps) => {
+const ProfileTemplate = ({ children }: ProfileTemplateProps) => {
   const { asPath } = useRouter()
 
   return (
-    <Base>
+    <BaseTemplate>
       <Container>
         <Heading lineLeft lineColor="secondary">
           My profile
@@ -25,8 +25,8 @@ const Profile = ({ children }: ProfileTemplateProps) => {
           <S.Content>{children}</S.Content>
         </S.Main>
       </Container>
-    </Base>
+    </BaseTemplate>
   )
 }
 
-export default Profile
+export default ProfileTemplate

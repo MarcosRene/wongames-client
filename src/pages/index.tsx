@@ -1,13 +1,13 @@
 import { HomeTemplateProps } from 'templates/Home/types'
 
-import Home from 'templates/Home'
+import HomeTemplate from 'templates/Home'
 
 import bannersMock from 'components/BannerSlider/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
 export default function PageRoot(props: HomeTemplateProps) {
-  return <Home {...props} />
+  return <HomeTemplate {...props} />
 }
 
 export function getServerSideProps() {

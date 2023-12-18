@@ -5,13 +5,13 @@ import GameInfo from 'components/GameInfo'
 import Showcase from 'components/Showcase'
 import TextContent from 'components/TextContent'
 
-import Base from 'templates/Base'
+import BaseTemplate from 'templates/Base'
 
 import { GameTemplateProps } from './types'
 
 import * as S from './styles'
 
-const Game = ({
+const GameTemplate = ({
   cover,
   gameInfo,
   gallery,
@@ -21,7 +21,7 @@ const Game = ({
   upcomingHighlight,
   recommendedGames
 }: GameTemplateProps) => (
-  <Base>
+  <BaseTemplate>
     <S.Cover src={cover} role="image" aria-label="cover" />
 
     <S.Main>
@@ -51,7 +51,7 @@ const Game = ({
 
       <Showcase title="You may like these games" games={recommendedGames} />
     </S.Main>
-  </Base>
+  </BaseTemplate>
 )
 
-export default Game
+export default GameTemplate

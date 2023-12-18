@@ -4,16 +4,19 @@ import ExploreSidebar from 'components/ExploreSidebar'
 import GameCard from 'components/GameCard'
 import { Grid } from 'components/Grid'
 
-import Base from 'templates/Base'
+import BaseTemplate from 'templates/Base'
 
 import { GamesTemplateProps } from './types'
 
 import * as S from './styles'
 
-const Games = ({ games = [], filterItems }: GamesTemplateProps) => (
-  <Base>
+const GamesTemplate = ({ games = [], filterItems }: GamesTemplateProps) => (
+  <BaseTemplate>
     <S.Main>
-      <ExploreSidebar items={filterItems} onFilter={() => console.log('filter')} />
+      <ExploreSidebar
+        items={filterItems}
+        onFilter={() => console.log('filter')}
+      />
 
       <section>
         <Grid>
@@ -28,7 +31,7 @@ const Games = ({ games = [], filterItems }: GamesTemplateProps) => (
         </S.ShowMore>
       </section>
     </S.Main>
-  </Base>
+  </BaseTemplate>
 )
 
-export default Games
+export default GamesTemplate

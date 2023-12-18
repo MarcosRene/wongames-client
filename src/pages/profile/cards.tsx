@@ -1,6 +1,6 @@
 import CardList from 'components/CardList'
 
-import Profile from 'templates/Profile'
+import ProfileTemplate from 'templates/Profile'
 
 import { CardListProps } from 'components/CardList/types'
 
@@ -8,9 +8,9 @@ import cardsMock from 'components/PaymentOptions/mock'
 
 export default function Index(props: CardListProps) {
   return (
-    <Profile>
+    <ProfileTemplate>
       <CardList {...props} />
-    </Profile>
+    </ProfileTemplate>
   )
 }
 

@@ -11,7 +11,7 @@ import Base from 'templates/Base'
 import { WishlistTemplateProps } from './types'
 import { Grid } from 'components/Grid'
 
-const Wishlist = ({
+const WishlistTemplate = ({
   games = [],
   recommendedGames,
   recommendedHighlight
@@ -47,4 +47,4 @@ const Wishlist = ({
   </Base>
 )
 
-export default Wishlist
+export default WishlistTemplate

@@ -1,11 +1,11 @@
 import FormProfile from 'components/FormProfile'
 
-import Profile from 'templates/Profile'
+import ProfileTemplate from 'templates/Profile'
 
 export default function Index() {
   return (
-    <Profile>
+    <ProfileTemplate>
       <FormProfile />
-    </Profile>
+    </ProfileTemplate>
   )
 }
