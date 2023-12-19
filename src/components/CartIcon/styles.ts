@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    position: absolute;
-    width: 2.6rem;
-    height: 2.6rem;
+    position: relative;
+    width: 2.4rem;
+    height: 2.4rem;
     color: ${theme.colors.white};
     cursor: pointer;
   `}
