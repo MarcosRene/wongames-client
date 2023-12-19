@@ -22,6 +22,7 @@ export const Footer = styled.div`
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     ${media.greaterThan('medium')`
       padding: ${theme.spacings.small};

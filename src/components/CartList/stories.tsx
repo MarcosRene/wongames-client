@@ -30,3 +30,11 @@ export const Default: StoryObj<typeof CartList> = {
     </Container>
   )
 }
+
+export const WithButton: StoryObj<typeof CartList> = {
+  render: (args) => (
+    <Container>
+      <CartList {...args} hasButton />
+    </Container>
+  )
+}
