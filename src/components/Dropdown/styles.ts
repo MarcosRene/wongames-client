@@ -39,6 +39,7 @@ const wrapperModifiers = {
     pointer-events: auto;
     transform: translateY(0);
   `,
+
   close: () => css`
     opacity: 0;
     pointer-events: none;
@@ -55,8 +56,8 @@ export const Wrapper = styled.div<{ isOpen: boolean }>`
       transition:
         transform 0.2s ease-in,
         opacity ${theme.transition.default};
-      ${isOpen && wrapperModifiers.open()}
-      ${!isOpen && wrapperModifiers.close()}
+
+      ${isOpen ? wrapperModifiers.open() : wrapperModifiers.close()};
     }
   `}
 `
