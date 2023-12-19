@@ -2,13 +2,36 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 import { tint } from 'polished'
 
-export const Wrapper = styled.main`
-  ${({ theme }) => css`
+import * as EmptyStyles from 'components/Empty/styles'
+
+export const Wrapper = styled.main<{ isEmpty: boolean }>`
+  ${({ theme, isEmpty }) => css`
     background: ${theme.colors.white};
 
     display: flex;
     flex-direction: column;
     align-self: start;
+
+    ${isEmpty &&
+    css`
+      ${EmptyStyles.Wrapper} {
+        color: ${theme.colors.black};
+        padding-bottom: ${theme.spacings.medium};
+      }
+
+      ${EmptyStyles.Image} {
+        max-width: 20rem;
+      }
+
+      ${EmptyStyles.Title} {
+        font-size: ${theme.font.sizes.large};
+      }
+
+      ${EmptyStyles.Description} {
+        color: ${theme.colors.black};
+        font-size: ${theme.font.sizes.medium};
+      }
+    `}
   `}
 `
 

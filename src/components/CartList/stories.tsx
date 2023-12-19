@@ -38,3 +38,11 @@ export const WithButton: StoryObj<typeof CartList> = {
     </Container>
   )
 }
+
+export const Empty: StoryObj<typeof CartList> = {
+  render: () => (
+    <Container>
+      <CartList />
+    </Container>
+  )
+}

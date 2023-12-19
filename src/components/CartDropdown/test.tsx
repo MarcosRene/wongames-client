@@ -16,14 +16,15 @@ describe('<CartDropdown />', () => {
     expect(
       within(parentElement).getByText(`${itemsMock.length}`)
     ).toBeInTheDocument()
-  }),
-    it('should render Dropdown content with cart items and total', () => {
-      renderWithTheme(<CartDropdown items={itemsMock} total="R$ 300,00" />)
+  })
 
-      expect(screen.getByText(/R\$ 300,00/i)).toBeInTheDocument()
+  it('should render Dropdown content with cart items and total', () => {
+    renderWithTheme(<CartDropdown items={itemsMock} total="R$ 300,00" />)
 
-      for (const item of itemsMock) {
-        expect(screen.getByText(item.title)).toBeInTheDocument()
-      }
-    })
+    expect(screen.getByText(/R\$ 300,00/i)).toBeInTheDocument()
+
+    for (const item of itemsMock) {
+      expect(screen.getByText(item.title)).toBeInTheDocument()
+    }
+  })
 })

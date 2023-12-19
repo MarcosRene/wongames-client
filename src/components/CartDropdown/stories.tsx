@@ -27,3 +27,11 @@ export const Default: StoryObj<typeof CartDropdown> = {
     </Container>
   )
 }
+
+export const Empty: StoryObj<typeof CartDropdown> = {
+  render: () => (
+    <Container>
+      <CartDropdown />
+    </Container>
+  )
+}
