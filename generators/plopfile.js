@@ -32,7 +32,7 @@ module.exports = (plop) => {
       {
         type: 'add',
         path: '../src/components/{{pascalCase name}}/types.tsx',
-        templateFile: 'templates/types.tsx.hbs'
+        templateFile: 'templates/types.ts.hbs'
       }
     ]
   })
