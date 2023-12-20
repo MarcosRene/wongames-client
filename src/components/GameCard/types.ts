@@ -1,4 +1,5 @@
 export type GameCardProps = {
+  slug: string
   title: string
   developer: string
   img: string
