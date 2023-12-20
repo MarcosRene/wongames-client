@@ -31,7 +31,8 @@
       2,
       {
         "allowObject": true,
-        "allowArray": true
+        "allowArray": true,
+        "allowNew": true
       }
     ]
   }
