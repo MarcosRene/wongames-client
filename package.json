@@ -24,7 +24,6 @@
     "@styled-icons/fa-brands": "^10.47.0",
     "@styled-icons/material-outlined": "^10.47.0",
     "@styled-icons/remix-fill": "^10.46.0",
-    "Download": "link:@styled-icons/boxicons-solid/Download",
     "graphql": "^16.8.1",
     "next": "12.3.0",
     "react": "latest",
