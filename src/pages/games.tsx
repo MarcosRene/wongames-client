@@ -1,7 +1,7 @@
-import { gql } from '@apollo/client'
-
 import { initializeApollo } from 'services/apollo'
 import GameMapper, { PersistenceGameProps } from 'services/mappers/GameMapper'
+
+import { QueryGames } from 'graphql/queries/games'
 
 import GamesTemplate from 'templates/Games'
 
@@ -19,33 +19,8 @@ export async function getStaticProps() {
   const {
     data: { games: allGames }
   } = await apolloClient.query({
-    query: gql`
-      query QueryGames {
-        games {
-          data {
-            attributes {
-              slug
-              name
-              cover {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              price
-              developers {
-                data {
-                  attributes {
-                    name
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `
+    query: QueryGames,
+    variables: { limit: 9 }
   })
 
   const games = allGames.data.map((game: PersistenceGameProps) => {
