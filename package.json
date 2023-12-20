@@ -17,6 +17,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.8",
     "@storybook/theming": "^7.6.4",
     "@styled-icons/boxicons-regular": "^10.47.0",
     "@styled-icons/boxicons-solid": "^10.47.0",
@@ -24,6 +25,7 @@
     "@styled-icons/material-outlined": "^10.47.0",
     "@styled-icons/remix-fill": "^10.46.0",
     "Download": "link:@styled-icons/boxicons-solid/Download",
+    "graphql": "^16.8.1",
     "next": "12.3.0",
     "react": "latest",
     "react-dom": "latest",
