@@ -171,6 +171,8 @@ exports[`<Showcase /> should render full showcase 1`] = `
 
 .c17 {
   max-width: calc(100% - 2.5rem);
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c18 {
@@ -549,8 +551,9 @@ exports[`<Showcase /> should render full showcase 1`] = `
                 <article
                   class="c14"
                 >
-                  <div
+                  <a
                     class="c15"
+                    href="/game/population-zero"
                   >
                     <span
                       style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"
@@ -564,12 +567,13 @@ exports[`<Showcase /> should render full showcase 1`] = `
                       />
                       <noscript />
                     </span>
-                  </div>
+                  </a>
                   <div
                     class="c16"
                   >
-                    <div
+                    <a
                       class="c17"
+                      href="/game/population-zero"
                     >
                       <h3
                         class="c18"
@@ -581,7 +585,7 @@ exports[`<Showcase /> should render full showcase 1`] = `
                       >
                         Rockstar Games
                       </h4>
-                    </div>
+                    </a>
                     <div
                       class="c20"
                       role="button"
@@ -606,12 +610,12 @@ exports[`<Showcase /> should render full showcase 1`] = `
                       <div
                         class="c23"
                       >
-                        R$ 235,00
+                        $235.00
                       </div>
                       <div
                         class="c24"
                       >
-                        R$ 215,00
+                        $215.00
                       </div>
                       <button
                         class="c25"

@@ -9,6 +9,8 @@ import { GlobalStyles } from 'styles/global'
 import theme from 'styles/theme'
 
 export default function App({ Component, pageProps }: AppProps) {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const client = useApollo(pageProps.initialApolloState)
 
   return (

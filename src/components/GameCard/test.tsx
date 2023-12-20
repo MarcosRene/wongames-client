@@ -11,7 +11,7 @@ const onwnerProps = {
   title: 'Population Zero',
   developer: 'Rockstar Games',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
-  price: 'R$ 235,00'
+  price: 235
 }
 
 jest.mock('next/image', () => {
@@ -47,20 +47,32 @@ describe('<GameCard />', () => {
   it('should render price in label', () => {
     renderWithTheme(<GameCard {...onwnerProps} />)
 
-    const price = screen.getByText('R$ 235,00')
+    const price = screen.getByText('$235.00')
 
     expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
     expect(price).toHaveStyle({ backgroundColor: theme.colors.secondary })
   })
 
-  it('should render a line-through in price when promotional', () => {
-    renderWithTheme(<GameCard {...onwnerProps} promotionalPrice="R$ 15,00" />)
+  it('should render the label "Free"', () => {
+    renderWithTheme(<GameCard {...onwnerProps} price={0} />)
 
-    expect(screen.getByText('R$ 235,00')).toHaveStyle({
+    const freeLabel = screen.getByText('Free')
+
+    expect(freeLabel).toBeInTheDocument()
+    expect(freeLabel).toHaveStyle({
+      backgroundColor: theme.colors.secondary,
+      color: theme.colors.white
+    })
+  })
+
+  it('should render a line-through in price when promotional', () => {
+    renderWithTheme(<GameCard {...onwnerProps} promotionalPrice={15} />)
+
+    expect(screen.getByText('$235.00')).toHaveStyle({
       textDecoration: 'line-through'
     })
 
-    expect(screen.getByText('R$ 15,00')).not.toHaveStyle({
+    expect(screen.getByText('$15.00')).not.toHaveStyle({
       textDecoration: 'line-through'
     })
   })
@@ -93,8 +105,11 @@ describe('<GameCard />', () => {
     )
     const ribbon = screen.getByText(/my ribbon/i)
 
-    expect(ribbon).toHaveStyle({ backgroundColor: theme.colors.secondary })
-    expect(ribbon).toHaveStyle({ height: '2.6rem', fontSize: '1.2rem' })
+    expect(ribbon).toHaveStyle({
+      backgroundColor: theme.colors.secondary,
+      height: '2.6rem',
+      fontSize: '1.2rem'
+    })
     expect(ribbon).toBeInTheDocument()
   })
 })

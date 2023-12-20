@@ -10,7 +10,7 @@ export default {
     title: 'Population Zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
-    price: 'R$ 235,00'
+    price: 235
   },
   argTypes: {
     onFav: { action: 'clicked' },
@@ -41,7 +41,7 @@ export const WithPromotionalPrice: StoryObj<typeof GameCard> = {
 }
 
 WithPromotionalPrice.args = {
-  promotionalPrice: 'R$ 200,00'
+  promotionalPrice: 200
 }
 
 export const WithRibbon: StoryObj<typeof GameCard> = {
@@ -53,8 +53,20 @@ export const WithRibbon: StoryObj<typeof GameCard> = {
 }
 
 WithRibbon.args = {
-  promotionalPrice: 'R$ 215,00',
+  promotionalPrice: 215,
   ribbon: '20% OFF',
   ribbonSize: 'small',
   ribbonColor: 'primary'
+}
+
+export const LabelFree: StoryObj<typeof GameCard> = {
+  render: (args) => (
+    <Container>
+      <GameCard {...args} />
+    </Container>
+  )
+}
+
+LabelFree.args = {
+  price: 0
 }
