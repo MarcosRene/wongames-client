@@ -10,3 +10,9 @@ export default {
 } as Meta<typeof Menu>
 
 export const Default: StoryObj<typeof Menu> = {}
+
+export const Logged: StoryObj<typeof Menu> = {
+  args: {
+    username: 'John Doe'
+  }
+}
