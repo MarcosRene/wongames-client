@@ -1,23 +1,64 @@
-import GameTemplate from 'templates/Game'
+import { GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
 
+import {
+  queryGames as QueryGames,
+  queryGamesVariables as QueryGamesVariables
+} from 'graphql/__genereted__/queryGames'
+import {
+  queryGameBySlug as QueryGameBySlug,
+  queryGameBySlugVariables as QueryGameBySlugVariables
+} from 'graphql/__genereted__/queryGameBySlug'
+import { QueryGetGameBySlug, QueryGetGames } from 'graphql/queries/games'
+
+import { initializeApollo } from 'services/apollo'
+
+import formatCurrency from 'utils/formatCurrency'
+import formatedDate from 'utils/date'
+
+import GameTemplate from 'templates/Game'
 import { GameTemplateProps } from 'templates/Game/types'
 
 import gamesMock from 'components/GameCardSlider/mock'
-import galleryMock from 'components/Gallery/mock'
 import highlightMock from 'components/Highlight/mock'
 
+const apolloClient = initializeApollo()
+
 export default function Index(props: GameTemplateProps) {
+  const router = useRouter()
+
+  if (router.isFallback) return null
+
   return <GameTemplate {...props} />
 }
 
 export async function getStaticPaths() {
-  return {
-    paths: [{ params: { slug: 'cyberpunk-2077' } }],
-    fallback: false
-  }
+  const {
+    data: { games }
+  } = await apolloClient.query<QueryGames, QueryGamesVariables>({
+    query: QueryGetGames,
+    variables: { limit: 9 }
+  })
+
+  const paths = games?.data.map(({ attributes }) => ({
+    params: { slug: attributes?.slug }
+  }))
+
+  return { paths, fallback: true }
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const {
+    data: { games }
+  } = await apolloClient.query<QueryGameBySlug, QueryGameBySlugVariables>({
+    query: QueryGetGameBySlug,
+    variables: { slug: params?.slug as string }
+  })
+
+  if (!games?.data.length) return { notFound: true }
+
+  const currentGame = games.data[0]
+
   const descriptionHTML = `
     <img src="https://items.gog.com/not_a_cp/ENG_product-page-addons-2020_yellow_on_black.png"><br>
     * Exclusive Digital Comic - Cyberpunk 2077: Big City Dreams will be available in English only.
@@ -38,23 +79,29 @@ export async function getStaticProps() {
 
   return {
     props: {
-      cover:
-        'https://images.gog-statics.com/5643a7c831df452d29005caeca24c28cdbfaa6fbea5a9556b147ee26d325fa70_bg_crop_1366x655.jpg',
+      revalidate: 60,
+      cover: `http://localhost:1337${currentGame.attributes?.cover?.data?.attributes?.src}`,
       gameInfo: {
-        title: 'Cyberpunk 2077',
-        price: '59.00',
-        description:
-          'Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality'
+        title: currentGame.attributes?.name,
+        price: currentGame.attributes?.price,
+        description: currentGame.attributes?.short_description
       },
-      gallery: galleryMock,
-      description: descriptionHTML,
+      gallery: currentGame.attributes?.gallery?.data.map((gallery) => ({
+        src: `http://localhost:1337${gallery.attributes?.src}`,
+        label: gallery.attributes?.label
+      })),
+      description: currentGame.attributes?.description,
       details: {
-        developer: 'CD PROJEKT RED',
-        releaseDate: '2020-12-10T23:00:00',
-        platforms: ['windows'],
-        publisher: 'CD PROJEKT RED',
-        rating: 'BR18',
-        genres: ['Action', 'Role-playing']
+        developer: currentGame.attributes?.developers?.data[0].attributes?.name,
+        releaseDate: formatedDate(currentGame.attributes?.release_date),
+        platforms: currentGame.attributes?.platforms?.data.map(
+          (platform) => platform.attributes?.name
+        ),
+        publisher: currentGame.attributes?.publisher?.data?.attributes?.name,
+        rating: currentGame.attributes?.rating,
+        genres: currentGame.attributes?.categories?.data.map(
+          (catetory) => catetory.attributes?.name
+        )
       },
       UpcomingGames: gamesMock,
       upcomingHighlight: highlightMock,

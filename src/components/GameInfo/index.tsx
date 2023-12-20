@@ -3,6 +3,8 @@ import {
   FavoriteBorder
 } from '@styled-icons/material-outlined'
 
+import formatCurrency from 'utils/formatCurrency'
+
 import Button from 'components/Button'
 import Heading from 'components/Heading'
 import Ribbon from 'components/Ribbon'
@@ -17,7 +19,7 @@ const GameInfo = ({ title, description, price }: GameInfoProps) => (
       {title}
     </Heading>
 
-    <Ribbon color="secondary">{`$${price}`}</Ribbon>
+    <Ribbon color="secondary">{formatCurrency(price)}</Ribbon>
 
     <S.Description>{description}</S.Description>
 
