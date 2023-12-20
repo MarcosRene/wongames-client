@@ -1,15 +1,24 @@
+import { ImgHTMLAttributes } from 'react'
 import { screen, fireEvent } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests'
+
 import theme from 'styles/theme'
 
 import GameCard from '.'
 
 const onwnerProps = {
+  slug: 'population-zero',
   title: 'Population Zero',
   developer: 'Rockstar Games',
   img: 'https://source.unsplash.com/user/willianjusten/300x140',
   price: 'R$ 235,00'
 }
+
+jest.mock('next/image', () => {
+  return (props: ImgHTMLAttributes<HTMLImageElement>) => {
+    return <img {...props} />
+  }
+})
 
 describe('<GameCard />', () => {
   it('should render correctly', () => {
@@ -23,10 +32,13 @@ describe('<GameCard />', () => {
       screen.getByRole('heading', { name: onwnerProps.developer })
     ).toBeInTheDocument()
 
-    //Next Image with base64
-    // expect(
-    //   screen.getByRole('img', { name: onwnerProps.title })
-    // ).toHaveAttribute('src', onwnerProps.img)
+    expect(
+      screen.getByRole('img', { name: onwnerProps.title })
+    ).toHaveAttribute('src', onwnerProps.img)
+
+    expect(
+      screen.getByRole('link', { name: onwnerProps.title })
+    ).toHaveAttribute('href', `/game/${onwnerProps.slug}`)
 
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
     expect(container.firstChild).toMatchSnapshot()
