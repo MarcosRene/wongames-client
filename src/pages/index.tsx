@@ -18,7 +18,7 @@ export async function getStaticProps() {
   const apploClient = initializeApollo()
 
   const {
-    data: { banners }
+    data: { banners, newGames }
   } = await apploClient.query<QueryHome>({
     query: GetHome
   })
@@ -38,7 +38,13 @@ export async function getStaticProps() {
           ribbonSize: banner.attributes?.ribbon?.size
         })
       })),
-      newGames: gamesMock,
+      newGames: newGames?.data.map((newGame) => ({
+        slug: newGame.attributes?.slug,
+        title: newGame.attributes?.name,
+        developer: newGame.attributes?.developers?.data[0].attributes?.name,
+        img: `http://localhost:1337${newGame.attributes?.cover?.data?.attributes?.url}`,
+        price: newGame.attributes?.price
+      })),
       mostPopularHighlight: highlightMock,
       mostPopularGames: gamesMock,
       UpcomingGames: gamesMock,
