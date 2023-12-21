@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 
-const QueryGetGames = gql`
-  query queryGames($limit: Int!) {
+export const GetGames = gql`
+  query QueryGames($limit: Int!) {
     games(pagination: { limit: $limit }) {
       data {
         attributes {
@@ -28,8 +28,8 @@ const QueryGetGames = gql`
   }
 `
 
-const QueryGetGameBySlug = gql`
-  query queryGameBySlug($slug: String!) {
+export const GetGameBySlug = gql`
+  query QueryGameBySlug($slug: String!) {
     games(filters: { slug: { eq: $slug } }) {
       data {
         attributes {
@@ -87,5 +87,3 @@ const QueryGetGameBySlug = gql`
     }
   }
 `
-
-export { QueryGetGames, QueryGetGameBySlug }

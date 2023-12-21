@@ -2,18 +2,17 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 
 import {
-  queryGames as QueryGames,
-  queryGamesVariables as QueryGamesVariables
-} from 'graphql/__genereted__/queryGames'
+  QueryGames,
+  QueryGamesVariables
+} from 'graphql/__genereted__/QueryGames'
 import {
-  queryGameBySlug as QueryGameBySlug,
-  queryGameBySlugVariables as QueryGameBySlugVariables
-} from 'graphql/__genereted__/queryGameBySlug'
-import { QueryGetGameBySlug, QueryGetGames } from 'graphql/queries/games'
+  QueryGameBySlug,
+  QueryGameBySlugVariables
+} from 'graphql/__genereted__/QueryGameBySlug'
+import { GetGameBySlug, GetGames } from 'graphql/queries/games'
 
 import { initializeApollo } from 'services/apollo'
 
-import formatCurrency from 'utils/formatCurrency'
 import formatedDate from 'utils/date'
 
 import GameTemplate from 'templates/Game'
@@ -36,7 +35,7 @@ export async function getStaticPaths() {
   const {
     data: { games }
   } = await apolloClient.query<QueryGames, QueryGamesVariables>({
-    query: QueryGetGames,
+    query: GetGames,
     variables: { limit: 9 }
   })
 
@@ -51,7 +50,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const {
     data: { games }
   } = await apolloClient.query<QueryGameBySlug, QueryGameBySlugVariables>({
-    query: QueryGetGameBySlug,
+    query: GetGameBySlug,
     variables: { slug: params?.slug as string }
   })
 

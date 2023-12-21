@@ -1,11 +1,11 @@
 import { initializeApollo } from 'services/apollo'
 import GameMapper from 'utils/mappers/GameMapper'
 
-import { QueryGetGames } from 'graphql/queries/games'
+import { GetGames } from 'graphql/queries/games'
 import {
-  queryGames as QueryGames,
-  queryGamesVariables as QueryGamesVariables
-} from 'graphql/__genereted__/queryGames'
+  QueryGames,
+  QueryGamesVariables
+} from 'graphql/__genereted__/QueryGames'
 
 import GamesTemplate from 'templates/Games'
 
@@ -23,7 +23,7 @@ export async function getStaticProps() {
   const {
     data: { games: allGames }
   } = await apolloClient.query<QueryGames, QueryGamesVariables>({
-    query: QueryGetGames,
+    query: GetGames,
     variables: { limit: 9 }
   })
 
