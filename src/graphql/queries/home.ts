@@ -24,6 +24,30 @@ export const GetHome = gql`
         }
       }
     }
+
+    upcomingGames: games(
+      filters: { release_date: { gt: "2023-12-21" } }
+      sort: "release_date:desc"
+      pagination: { limit: 8 }
+    ) {
+      data {
+        attributes {
+          ...GameFragment
+        }
+      }
+    }
+
+    freeGames: games(
+      filters: { price: { eq: 0 } }
+      sort: "release_date:desc"
+      pagination: { limit: 8 }
+    ) {
+      data {
+        attributes {
+          ...GameFragment
+        }
+      }
+    }
   }
 
   ${BannerFragment}

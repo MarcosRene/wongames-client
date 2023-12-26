@@ -13,9 +13,8 @@ const ownerProps = {
   newGames: [gamesMock[0]],
   mostPopularHighlight: highlightMock,
   mostPopularGames: [gamesMock[0]],
-  UpcomingGames: [gamesMock[0]],
-  UpcomingHighligth: highlightMock,
-  UpcomingMoreGames: [gamesMock[0]],
+  upcomingGames: [gamesMock[0]],
+  upcomingHighligth: highlightMock,
   freeGames: [gamesMock[0]],
   freeHighligth: highlightMock
 }
@@ -41,6 +40,6 @@ describe('<Home />', () => {
     expect(
       screen.getByText(/render BannerSlider component/i)
     ).toBeInTheDocument()
-    expect(screen.getAllByTestId('showcase')).toHaveLength(5)
+    expect(screen.getAllByTestId('showcase')).toHaveLength(4)
   })
 })

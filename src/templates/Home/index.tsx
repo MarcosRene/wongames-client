@@ -13,9 +13,8 @@ const HomeTemplate = ({
   newGames,
   mostPopularHighlight,
   mostPopularGames,
-  UpcomingGames,
-  UpcomingHighligth,
-  UpcomingMoreGames,
+  upcomingGames,
+  upcomingHighligth,
   freeGames,
   freeHighligth
 }: HomeTemplateProps) => (
@@ -36,11 +35,11 @@ const HomeTemplate = ({
       games={mostPopularGames}
     />
 
-    <S.SectionUpcoming>
-      <Showcase title="Upcoming" games={UpcomingGames} />
-
-      <Showcase highlight={UpcomingHighligth} games={UpcomingMoreGames} />
-    </S.SectionUpcoming>
+    <Showcase
+      title="Upcoming"
+      games={upcomingGames}
+      highlight={upcomingHighligth}
+    />
 
     <Showcase title="Free games" highlight={freeHighligth} games={freeGames} />
   </BaseTemplate>
