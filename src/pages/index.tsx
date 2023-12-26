@@ -37,6 +37,7 @@ export async function getStaticProps() {
           ribbonSize: banner.attributes?.ribbon?.size
         })
       })),
+      newGamesTitle: sections?.data?.attributes?.newGames?.title,
       newGames: newGames?.data.map((newGame) => ({
         slug: newGame.attributes?.slug,
         title: newGame.attributes?.name,
@@ -44,6 +45,7 @@ export async function getStaticProps() {
         img: `http://localhost:1337${newGame.attributes?.cover?.data?.attributes?.url}`,
         price: newGame.attributes?.price
       })),
+      mostPopularGamesTitle: sections?.data?.attributes?.popularGames?.title,
       mostPopularHighlight: highlightMock,
       mostPopularGames:
         sections?.data?.attributes?.popularGames!.games!.data.map(
@@ -56,6 +58,7 @@ export async function getStaticProps() {
             price: popularGame.attributes?.price
           })
         ),
+      upcomingGamesTitle: sections?.data?.attributes?.upcomingGames?.title,
       upcomingGames: upcomingGames?.data.map((upcomingGame) => ({
         slug: upcomingGame.attributes?.slug,
         title: upcomingGame.attributes?.name,
@@ -64,7 +67,8 @@ export async function getStaticProps() {
         img: `http://localhost:1337${upcomingGame.attributes?.cover?.data?.attributes?.url}`,
         price: upcomingGame.attributes?.price
       })),
-      upcomingHighligth: highlightMock,
+      upcomingHighlight: highlightMock,
+      freeGamesTitle: sections?.data?.attributes?.freeGames?.title,
       freeGames: freeGames?.data.map((freeGame) => ({
         slug: freeGame.attributes?.slug,
         title: freeGame.attributes?.name,
@@ -72,7 +76,7 @@ export async function getStaticProps() {
         img: `http://localhost:1337${freeGame.attributes?.cover?.data?.attributes?.url}`,
         price: freeGame.attributes?.price
       })),
-      freeHighligth: highlightMock
+      freeHighlight: highlightMock
     }
   }
 }

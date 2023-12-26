@@ -10,13 +10,17 @@ import { HomeTemplateProps } from './types'
 
 const HomeTemplate = ({
   banners,
+  newGamesTitle,
   newGames,
+  mostPopularGamesTitle,
   mostPopularHighlight,
   mostPopularGames,
+  upcomingGamesTitle,
   upcomingGames,
-  upcomingHighligth,
+  upcomingHighlight,
+  freeGamesTitle,
   freeGames,
-  freeHighligth
+  freeHighlight
 }: HomeTemplateProps) => (
   <BaseTemplate>
     <Container>
@@ -26,22 +30,26 @@ const HomeTemplate = ({
     </Container>
 
     <S.SectionNews>
-      <Showcase title="News" games={newGames} color="black" />
+      <Showcase title={newGamesTitle} games={newGames} color="black" />
     </S.SectionNews>
 
     <Showcase
-      title="Most Popular"
+      title={mostPopularGamesTitle}
       highlight={mostPopularHighlight}
       games={mostPopularGames}
     />
 
     <Showcase
-      title="Upcoming"
+      title={upcomingGamesTitle}
       games={upcomingGames}
-      highlight={upcomingHighligth}
+      highlight={upcomingHighlight}
     />
 
-    <Showcase title="Free games" highlight={freeHighligth} games={freeGames} />
+    <Showcase
+      title={freeGamesTitle}
+      highlight={freeHighlight}
+      games={freeGames}
+    />
   </BaseTemplate>
 )
 
