@@ -2,6 +2,7 @@ import { gql } from '@apollo/client'
 
 import { BannerFragment } from 'graphql/fragments/banner'
 import { GameFragment } from 'graphql/fragments/game'
+import { SectionsFragment } from 'graphql/fragments/sections'
 
 export const GetHome = gql`
   query QueryHome {
@@ -48,8 +49,17 @@ export const GetHome = gql`
         }
       }
     }
+
+    sections: home {
+      data {
+        attributes {
+          ...SectionsFragment
+        }
+      }
+    }
   }
 
   ${BannerFragment}
   ${GameFragment}
+  ${SectionsFragment}
 `

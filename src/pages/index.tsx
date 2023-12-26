@@ -7,7 +7,6 @@ import HomeTemplate from 'templates/Home'
 
 import { HomeTemplateProps } from 'templates/Home/types'
 
-import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
 export default function PageRoot(props: HomeTemplateProps) {
@@ -18,7 +17,7 @@ export async function getStaticProps() {
   const apploClient = initializeApollo()
 
   const {
-    data: { banners, newGames, upcomingGames, freeGames }
+    data: { banners, newGames, upcomingGames, freeGames, sections }
   } = await apploClient.query<QueryHome>({
     query: GetHome
   })
@@ -46,7 +45,17 @@ export async function getStaticProps() {
         price: newGame.attributes?.price
       })),
       mostPopularHighlight: highlightMock,
-      mostPopularGames: gamesMock,
+      mostPopularGames:
+        sections?.data?.attributes?.popularGames!.games!.data.map(
+          (popularGame) => ({
+            slug: popularGame.attributes?.slug,
+            title: popularGame.attributes?.name,
+            developer:
+              popularGame.attributes?.developers?.data[0].attributes?.name,
+            img: `http://localhost:1337${popularGame.attributes?.cover?.data?.attributes?.url}`,
+            price: popularGame.attributes?.price
+          })
+        ),
       upcomingGames: upcomingGames?.data.map((upcomingGame) => ({
         slug: upcomingGame.attributes?.slug,
         title: upcomingGame.attributes?.name,
