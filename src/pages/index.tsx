@@ -1,7 +1,7 @@
 import { initializeApollo } from 'services/apollo'
 
 import { GetHome } from 'graphql/queries/home'
-import { QueryHome } from 'graphql/__genereted__/QueryHome'
+import { QueryHome, QueryHomeVariables } from 'graphql/__genereted__/QueryHome'
 
 import BannerMapper from 'utils/mappers/BannerMapper'
 import GameMapper from 'utils/mappers/GameMapper'
@@ -19,8 +19,11 @@ export async function getStaticProps() {
 
   const {
     data: { banners, newGames, upcomingGames, freeGames, sections }
-  } = await apploClient.query<QueryHome>({
-    query: GetHome
+  } = await apploClient.query<QueryHome, QueryHomeVariables>({
+    query: GetHome,
+    variables: {
+      date: new Date().toISOString().slice(0, 10) // For example -> 2023-12-26
+    }
   })
 
   return {
