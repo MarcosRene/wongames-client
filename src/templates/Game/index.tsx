@@ -19,6 +19,7 @@ const GameTemplate = ({
   details,
   upcomingGames,
   upcomingHighlight,
+  recommendedTitle,
   recommendedGames
 }: GameTemplateProps) => (
   <BaseTemplate>
@@ -49,7 +50,7 @@ const GameTemplate = ({
         highlight={upcomingHighlight}
       />
 
-      <Showcase title="You may like these games" games={recommendedGames} />
+      <Showcase title={recommendedTitle} games={recommendedGames} />
     </S.Main>
   </BaseTemplate>
 )

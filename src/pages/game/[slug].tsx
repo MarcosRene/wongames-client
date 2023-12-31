@@ -10,10 +10,13 @@ import {
   QueryGameBySlugVariables
 } from 'graphql/__genereted__/QueryGameBySlug'
 import { GetGameBySlug, GetGames } from 'graphql/queries/games'
+import { QueryRecommended } from 'graphql/__genereted__/QueryRecommended'
+import { GetRecommended } from 'graphql/queries/recommended'
 
 import { initializeApollo } from 'services/apollo'
 
 import formatedDate from 'utils/date'
+import GameMapper from 'utils/mappers/GameMapper'
 
 import GameTemplate from 'templates/Game'
 import { GameTemplateProps } from 'templates/Game/types'
@@ -58,6 +61,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const currentGame = games.data[0]
 
+  const {
+    data: { recommended }
+  } = await apolloClient.query<QueryRecommended>({
+    query: GetRecommended
+  })
+
   return {
     props: {
       revalidate: 60,
@@ -84,9 +93,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           (catetory) => catetory.attributes?.name
         )
       },
-      UpcomingGames: gamesMock,
+      upcomingGames: gamesMock,
       upcomingHighlight: highlightMock,
-      recommendedGames: gamesMock
+      recommendedTitle: recommended?.data?.attributes?.section.title,
+      recommendedGames: GameMapper.toDomain(
+        recommended?.data?.attributes?.section.games?.data
+      )
     }
   }
 }
