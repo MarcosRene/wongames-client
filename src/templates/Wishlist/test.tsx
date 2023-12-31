@@ -9,7 +9,8 @@ import highlightMock from 'components/Highlight/mock'
 const ownerProps = {
   games: gamesMock,
   recommendedGames: gamesMock,
-  recommendedHighlight: highlightMock
+  recommendedHighlight: highlightMock,
+  recommendedTitle: 'You may like these games'
 }
 
 jest.mock('components/Showcase', () => {
@@ -34,12 +35,17 @@ describe('<Wishlist />', () => {
   it('should render empty when there are no games', () => {
     renderWithTheme(
       <Wishlist
+        recommendedTitle="You may like these games"
         recommendedGames={gamesMock}
         recommendedHighlight={highlightMock}
       />
     )
 
     expect(screen.queryByText(/population zero/i)).not.toBeInTheDocument()
+
+    expect(
+      screen.queryByText(/you may like these games/i)
+    ).not.toBeInTheDocument()
 
     expect(
       screen.getByRole('heading', { name: /your wishlist is empty/i })
