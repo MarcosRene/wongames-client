@@ -10,6 +10,7 @@ export type GameTemplateProps = {
   gallery: GalleryImagemProps[]
   description: string
   details: GameDetailsProps
+  upcommingTitle: string
   upcomingGames: GameCardProps[]
   upcomingHighlight: HighlightProps
   recommendedTitle: string

@@ -148,7 +148,7 @@ export interface SectionsFragment_popularGames_games {
 
 export interface SectionsFragment_popularGames {
   __typename: "ComponentPagePopularGames";
-  title: string;
+  title: string | null;
   highlight: SectionsFragment_popularGames_highlight | null;
   games: SectionsFragment_popularGames_games | null;
 }

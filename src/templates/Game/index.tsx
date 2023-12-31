@@ -17,6 +17,7 @@ const GameTemplate = ({
   gallery,
   description,
   details,
+  upcommingTitle,
   upcomingGames,
   upcomingHighlight,
   recommendedTitle,
@@ -45,7 +46,7 @@ const GameTemplate = ({
       </S.SectionGameDetails>
 
       <Showcase
-        title="Upcoming"
+        title={upcommingTitle}
         games={upcomingGames}
         highlight={upcomingHighlight}
       />

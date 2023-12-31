@@ -311,7 +311,7 @@ input ComponentPagePopularGamesInput {
 
 type ComponentPagePopularGames {
   id: ID!
-  title: String!
+  title: String
   highlight: ComponentPageHighlight
   games(filters: GameFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): GameRelationResponseCollection
 }

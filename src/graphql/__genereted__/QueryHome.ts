@@ -342,7 +342,7 @@ export interface QueryHome_sections_data_attributes_popularGames_games {
 
 export interface QueryHome_sections_data_attributes_popularGames {
   __typename: "ComponentPagePopularGames";
-  title: string;
+  title: string | null;
   highlight: QueryHome_sections_data_attributes_popularGames_highlight | null;
   games: QueryHome_sections_data_attributes_popularGames_games | null;
 }

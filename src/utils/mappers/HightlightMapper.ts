@@ -1,5 +1,6 @@
 import { QueryHome_sections_data as HightlightMapperProps } from 'graphql/__genereted__/QueryHome'
 import { QueryRecommended_recommended_data as QueryRecommendedDataProps } from 'graphql/__genereted__/QueryRecommended'
+import { QueryUpcoming_showcase_data as QueryUpcomingDataProps } from 'graphql/__genereted__/QueryUpcoming'
 
 type SectionType =
   | 'newGames'
@@ -11,6 +12,7 @@ type SectionType =
 type PersistenceHightlightProps =
   | HightlightMapperProps
   | QueryRecommendedDataProps
+  | QueryUpcomingDataProps
   | undefined
   | null
 

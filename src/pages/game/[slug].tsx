@@ -12,17 +12,20 @@ import {
 import { GetGameBySlug, GetGames } from 'graphql/queries/games'
 import { QueryRecommended } from 'graphql/__genereted__/QueryRecommended'
 import { GetRecommended } from 'graphql/queries/recommended'
+import {
+  QueryUpcoming,
+  QueryUpcomingVariables
+} from 'graphql/__genereted__/QueryUpcoming'
+import { GetUpcoming } from 'graphql/queries/upcoming'
 
 import { initializeApollo } from 'services/apollo'
 
 import formatedDate from 'utils/date'
 import GameMapper from 'utils/mappers/GameMapper'
+import HightlightMapper from 'utils/mappers/HightlightMapper'
 
 import GameTemplate from 'templates/Game'
 import { GameTemplateProps } from 'templates/Game/types'
-
-import gamesMock from 'components/GameCardSlider/mock'
-import highlightMock from 'components/Highlight/mock'
 
 const apolloClient = initializeApollo()
 
@@ -67,6 +70,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     query: GetRecommended
   })
 
+  const {
+    data: { upcomingGames, showcase }
+  } = await apolloClient.query<QueryUpcoming, QueryUpcomingVariables>({
+    query: GetUpcoming,
+    variables: {
+      date: new Date().toISOString().slice(0, 10)
+    }
+  })
+
   return {
     props: {
       revalidate: 60,
@@ -93,8 +105,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           (catetory) => catetory.attributes?.name
         )
       },
-      upcomingGames: gamesMock,
-      upcomingHighlight: highlightMock,
+      upcommingTitle: showcase?.data?.attributes?.upcomingGames?.title,
+      upcomingGames: GameMapper.toDomain(upcomingGames?.data),
+      upcomingHighlight: HightlightMapper.toDomain(
+        showcase?.data,
+        'upcomingGames'
+      ),
       recommendedTitle: recommended?.data?.attributes?.section.title,
       recommendedGames: GameMapper.toDomain(
         recommended?.data?.attributes?.section.games?.data
