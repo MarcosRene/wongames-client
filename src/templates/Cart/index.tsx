@@ -13,6 +13,7 @@ import * as S from './styles'
 import { CartTemplateProps } from './types'
 
 const CartTemplate = ({
+  recommendedTitle,
   recommendedGames,
   recommendedHighlight,
   items,
@@ -46,7 +47,7 @@ const CartTemplate = ({
       </Container>
 
       <Showcase
-        title="You may like these games"
+        title={recommendedTitle}
         games={recommendedGames}
         highlight={recommendedHighlight}
       />
