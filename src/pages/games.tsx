@@ -27,13 +27,9 @@ export async function getStaticProps() {
     variables: { limit: 9 }
   })
 
-  const games = allGames?.data.map((game) => {
-    return GameMapper.toDomain(game)
-  })
-
   return {
     props: {
-      games,
+      games: GameMapper.toDomain(allGames?.data),
       filterItems: exploreMock,
       revalidate: 60
     }

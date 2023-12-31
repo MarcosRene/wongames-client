@@ -1,10 +1,22 @@
 import { QueryHome_sections_data as HightlightMapperProps } from 'graphql/__genereted__/QueryHome'
+import { QueryRecommended_recommended_data as QueryRecommendedDataProps } from 'graphql/__genereted__/QueryRecommended'
 
-type SectionType = 'newGames' | 'popularGames' | 'upcomingGames' | 'freeGames'
+type SectionType =
+  | 'newGames'
+  | 'popularGames'
+  | 'upcomingGames'
+  | 'freeGames'
+  | 'section'
+
+type PersistenceHightlightProps =
+  | HightlightMapperProps
+  | QueryRecommendedDataProps
+  | undefined
+  | null
 
 class HightlightMapper {
   toDomain(
-    persistenceHightlight: HightlightMapperProps | undefined | null,
+    persistenceHightlight: PersistenceHightlightProps,
     sectionType: SectionType
   ) {
     return {

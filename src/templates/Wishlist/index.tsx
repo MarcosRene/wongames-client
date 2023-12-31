@@ -13,6 +13,7 @@ import { Grid } from 'components/Grid'
 
 const WishlistTemplate = ({
   games = [],
+  recommendedTitle,
   recommendedGames,
   recommendedHighlight
 }: WishlistTemplateProps) => (
@@ -40,7 +41,7 @@ const WishlistTemplate = ({
     </Container>
 
     <Showcase
-      title="You may like these games"
+      title={recommendedTitle}
       games={recommendedGames}
       highlight={recommendedHighlight}
     />
