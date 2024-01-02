@@ -1,3 +1,4 @@
+import { useQuery } from '@apollo/client'
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 
 import ExploreSidebar from 'components/ExploreSidebar'
@@ -6,32 +7,53 @@ import { Grid } from 'components/Grid'
 
 import BaseTemplate from 'templates/Base'
 
+import {
+  QueryGames,
+  QueryGamesVariables
+} from 'graphql/__genereted__/QueryGames'
+import { GetGames } from 'graphql/queries/games'
+
 import { GamesTemplateProps } from './types'
 
 import * as S from './styles'
 
-const GamesTemplate = ({ games = [], filterItems }: GamesTemplateProps) => (
-  <BaseTemplate>
-    <S.Main>
-      <ExploreSidebar
-        items={filterItems}
-        onFilter={() => console.log('filter')}
-      />
+const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
+  const { data } = useQuery<QueryGames, QueryGamesVariables>(GetGames, {
+    variables: { limit: 15 }
+  })
 
-      <section>
-        <Grid>
-          {games.map((game) => (
-            <GameCard key={game.title} {...game} />
-          ))}
-        </Grid>
+  return (
+    <BaseTemplate>
+      <S.Main>
+        <ExploreSidebar
+          items={filterItems}
+          onFilter={() => console.log('filter')}
+        />
 
-        <S.ShowMore role="button" onClick={() => console.log('show more')}>
-          <p>Show More</p>
-          <ArrowDown size={35} />
-        </S.ShowMore>
-      </section>
-    </S.Main>
-  </BaseTemplate>
-)
+        <section>
+          <Grid>
+            {data?.games?.data.map((game) => (
+              <GameCard
+                key={game.attributes?.slug}
+                title={game.attributes!.name}
+                slug={game.attributes!.slug!.toString()}
+                developer={
+                  game.attributes!.developers!.data[0].attributes!.name
+                }
+                img={`http://localhost:1337${game.attributes?.cover?.data?.attributes?.url}`}
+                price={game.attributes!.price}
+              />
+            ))}
+          </Grid>
+
+          <S.ShowMore role="button" onClick={() => console.log('show more')}>
+            <p>Show More</p>
+            <ArrowDown size={35} />
+          </S.ShowMore>
+        </section>
+      </S.Main>
+    </BaseTemplate>
+  )
+}
 
 export default GamesTemplate
