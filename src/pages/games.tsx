@@ -1,5 +1,4 @@
 import { initializeApollo } from 'services/apollo'
-import GameMapper from 'utils/mappers/GameMapper'
 
 import { GetGames } from 'graphql/queries/games'
 import {
@@ -20,18 +19,16 @@ export default function GamesPage(props: GamesTemplateProps) {
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
-  const {
-    data: { games: allGames }
-  } = await apolloClient.query<QueryGames, QueryGamesVariables>({
+  await apolloClient.query<QueryGames, QueryGamesVariables>({
     query: GetGames,
     variables: { limit: 15 }
   })
 
   return {
     props: {
-      games: GameMapper.toDomain(allGames?.data),
-      filterItems: exploreMock,
-      revalidate: 60
+      revalidate: 60,
+      initialApolloState: apolloClient.cache.extract(),
+      filterItems: exploreMock
     }
   }
 }
