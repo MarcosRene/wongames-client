@@ -5,6 +5,7 @@ import {
   InMemoryCache,
   NormalizedCacheObject
 } from '@apollo/client'
+import { concatPagination } from '@apollo/client/utilities'
 
 import { constants as c } from 'constants/index'
 
@@ -13,7 +14,15 @@ let apolloClient: ApolloClient<NormalizedCacheObject>
 export const createApolloClient = new ApolloClient({
   ssrMode: typeof window === 'undefined',
   link: new HttpLink({ uri: c.APOLLO_CLIENT_URI }),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          games: concatPagination()
+        }
+      }
+    }
+  })
 })
 
 export const initializeApollo = (initialState = {}) => {

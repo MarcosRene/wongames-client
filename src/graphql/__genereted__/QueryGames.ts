@@ -62,4 +62,5 @@ export interface QueryGames {
 
 export interface QueryGamesVariables {
   limit: number;
+  start?: number | null;
 }

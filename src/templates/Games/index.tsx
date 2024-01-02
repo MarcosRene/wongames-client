@@ -18,9 +18,21 @@ import { GamesTemplateProps } from './types'
 import * as S from './styles'
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
-  const { data } = useQuery<QueryGames, QueryGamesVariables>(GetGames, {
-    variables: { limit: 15 }
-  })
+  const { data, fetchMore } = useQuery<QueryGames, QueryGamesVariables>(
+    GetGames,
+    {
+      variables: { limit: 15 }
+    }
+  )
+
+  function handleFecthMoreGames() {
+    fetchMore({
+      variables: {
+        limit: 15,
+        start: data?.games?.data.length
+      }
+    })
+  }
 
   return (
     <BaseTemplate>
@@ -32,21 +44,21 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
 
         <section>
           <Grid>
-            {data?.games?.data.map((game) => (
+            {data?.games?.data?.map((game) => (
               <GameCard
                 key={game.attributes?.slug}
-                title={game.attributes!.name}
-                slug={game.attributes!.slug!.toString()}
+                title={game.attributes?.name}
+                slug={game.attributes?.slug}
                 developer={
-                  game.attributes!.developers!.data[0].attributes!.name
+                  game.attributes?.developers?.data[0].attributes?.name
                 }
                 img={`http://localhost:1337${game.attributes?.cover?.data?.attributes?.url}`}
-                price={game.attributes!.price}
+                price={game.attributes?.price}
               />
             ))}
           </Grid>
 
-          <S.ShowMore role="button" onClick={() => console.log('show more')}>
+          <S.ShowMore role="button" onClick={handleFecthMoreGames}>
             <p>Show More</p>
             <ArrowDown size={35} />
           </S.ShowMore>
