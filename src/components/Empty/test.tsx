@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 
 import Empty from '.'
 
@@ -10,7 +10,7 @@ const onwnerProps = {
 
 describe('<Empty />', () => {
   it('should render the correclty', () => {
-    const { container } = renderWithTheme(<Empty {...onwnerProps} hasLink />)
+    const { container } = render(<Empty {...onwnerProps} hasLink />)
 
     expect(
       screen.getByRole('image', {
@@ -34,7 +34,7 @@ describe('<Empty />', () => {
   })
 
   it('should not render link when hasLink is not passed', () => {
-    renderWithTheme(<Empty {...onwnerProps} />)
+    render(<Empty {...onwnerProps} />)
 
     expect(
       screen.queryByRole('link', { name: /go back to store/i })

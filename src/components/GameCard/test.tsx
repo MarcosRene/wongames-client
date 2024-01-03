@@ -1,6 +1,6 @@
 import { ImgHTMLAttributes } from 'react'
 import { screen, fireEvent } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 
 import theme from 'styles/theme'
 
@@ -22,7 +22,7 @@ jest.mock('next/image', () => {
 
 describe('<GameCard />', () => {
   it('should render correctly', () => {
-    const { container } = renderWithTheme(<GameCard {...onwnerProps} />)
+    const { container } = render(<GameCard {...onwnerProps} />)
 
     expect(
       screen.getByRole('heading', { name: onwnerProps.title })
@@ -45,7 +45,7 @@ describe('<GameCard />', () => {
   })
 
   it('should render price in label', () => {
-    renderWithTheme(<GameCard {...onwnerProps} />)
+    render(<GameCard {...onwnerProps} />)
 
     const price = screen.getByText('$235.00')
 
@@ -54,7 +54,7 @@ describe('<GameCard />', () => {
   })
 
   it('should render the label "Free"', () => {
-    renderWithTheme(<GameCard {...onwnerProps} price={0} />)
+    render(<GameCard {...onwnerProps} price={0} />)
 
     const freeLabel = screen.getByText('Free')
 
@@ -66,7 +66,7 @@ describe('<GameCard />', () => {
   })
 
   it('should render a line-through in price when promotional', () => {
-    renderWithTheme(<GameCard {...onwnerProps} promotionalPrice={15} />)
+    render(<GameCard {...onwnerProps} promotionalPrice={15} />)
 
     expect(screen.getByText('$235.00')).toHaveStyle({
       textDecoration: 'line-through'
@@ -78,14 +78,14 @@ describe('<GameCard />', () => {
   })
 
   it('should render a filled Favorite icon when favorite is true', () => {
-    renderWithTheme(<GameCard {...onwnerProps} favorite />)
+    render(<GameCard {...onwnerProps} favorite />)
 
     expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
   })
 
   it('should call onFav method when favorite is clicked', () => {
     const onFav = jest.fn()
-    renderWithTheme(<GameCard {...onwnerProps} favorite onFav={onFav} />)
+    render(<GameCard {...onwnerProps} favorite onFav={onFav} />)
 
     const button = screen.getAllByRole('button')[0]
 
@@ -95,7 +95,7 @@ describe('<GameCard />', () => {
   })
 
   it('should render Ribbon', () => {
-    renderWithTheme(
+    render(
       <GameCard
         {...onwnerProps}
         ribbon="My Ribbon"

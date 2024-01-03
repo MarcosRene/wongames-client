@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 import theme from 'styles/theme'
 
 import TextContent from '.'
@@ -11,7 +11,7 @@ const ownerProps = {
 
 describe('<TextContent />', () => {
   it('should render the title and content', () => {
-    renderWithTheme(<TextContent {...ownerProps} />)
+    render(<TextContent {...ownerProps} />)
 
     expect(
       screen.getByRole('heading', { name: /description/i })
@@ -35,7 +35,7 @@ describe('<TextContent />', () => {
   })
 
   it('should render without title', () => {
-    renderWithTheme(<TextContent content={ownerProps.content} />)
+    render(<TextContent content={ownerProps.content} />)
 
     expect(
       screen.queryByRole('heading', { name: /description/i })

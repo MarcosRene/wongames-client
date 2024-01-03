@@ -1,6 +1,6 @@
 import 'match-media-mock'
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 
 import Cart from '.'
 
@@ -54,7 +54,7 @@ jest.mock('components/Empty', () => {
 
 describe('<Cart />', () => {
   it('should render the heading', () => {
-    renderWithTheme(<Cart {...ownerProps} />)
+    render(<Cart {...ownerProps} />)
 
     expect(
       screen.getByRole('heading', { name: /my cart/i })
@@ -66,9 +66,7 @@ describe('<Cart />', () => {
   })
 
   it('should render empty section if there are no items', () => {
-    const { debug, container } = renderWithTheme(
-      <Cart {...ownerProps} items={[]} />
-    )
+    const { debug, container } = render(<Cart {...ownerProps} items={[]} />)
 
     debug(container)
 

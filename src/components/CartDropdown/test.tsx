@@ -1,5 +1,5 @@
 import { screen, within } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 
 import CartDropdown from '.'
 
@@ -7,7 +7,7 @@ import itemsMock from 'components/CartList/mock'
 
 describe('<CartDropdown />', () => {
   it('should render <CartIcon /> and its badge', () => {
-    renderWithTheme(<CartDropdown items={itemsMock} total="R$ 300,00" />)
+    render(<CartDropdown items={itemsMock} total="R$ 300,00" />)
 
     const parentElement = screen.getByLabelText(/shopping cart/i)
       .parentElement as HTMLElement
@@ -19,7 +19,7 @@ describe('<CartDropdown />', () => {
   })
 
   it('should render Dropdown content with cart items and total', () => {
-    renderWithTheme(<CartDropdown items={itemsMock} total="R$ 300,00" />)
+    render(<CartDropdown items={itemsMock} total="R$ 300,00" />)
 
     expect(screen.getByText(/R\$ 300,00/i)).toBeInTheDocument()
 

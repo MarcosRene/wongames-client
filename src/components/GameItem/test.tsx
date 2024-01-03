@@ -1,7 +1,7 @@
 import { ImgHTMLAttributes } from 'react'
 import { screen } from '@testing-library/react'
 
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 
 import GameItem from '.'
 
@@ -25,7 +25,7 @@ jest.mock('next/image', () => {
 
 describe('<GameItem />', () => {
   it('should render the item', () => {
-    renderWithTheme(<GameItem {...ownerProps} />)
+    render(<GameItem {...ownerProps} />)
 
     expect(
       screen.getByRole('heading', { name: ownerProps.title })
@@ -42,7 +42,7 @@ describe('<GameItem />', () => {
   it('should render item with donwload link', () => {
     const downloadLink = 'http://link'
 
-    renderWithTheme(<GameItem {...ownerProps} downloadLink={downloadLink} />)
+    render(<GameItem {...ownerProps} downloadLink={downloadLink} />)
 
     expect(
       screen.getByRole('link', { name: `Get ${ownerProps.title} here` })
@@ -57,7 +57,7 @@ describe('<GameItem />', () => {
       purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
     }
 
-    renderWithTheme(<GameItem {...ownerProps} paymentInfo={paymentInfo} />)
+    render(<GameItem {...ownerProps} paymentInfo={paymentInfo} />)
 
     expect(
       screen.getByRole('img', { name: paymentInfo.cartFlag })

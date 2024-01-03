@@ -2,7 +2,7 @@ import 'match-media-mock'
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { css } from 'styled-components'
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 
 import ExploreSidebar from '.'
 
@@ -12,7 +12,7 @@ import exploreMock from './mock'
 
 describe('<ExploreSidebar />', () => {
   it('should render headings', () => {
-    renderWithTheme(<ExploreSidebar items={exploreMock} onFilter={jest.fn()} />)
+    render(<ExploreSidebar items={exploreMock} onFilter={jest.fn()} />)
 
     for (const explore of exploreMock) {
       expect(
@@ -24,7 +24,7 @@ describe('<ExploreSidebar />', () => {
   })
 
   it('should render inputs', () => {
-    renderWithTheme(<ExploreSidebar items={exploreMock} onFilter={jest.fn()} />)
+    render(<ExploreSidebar items={exploreMock} onFilter={jest.fn()} />)
 
     for (const explore of exploreMock) {
       if (explore.type === 'checkbox') {
@@ -46,13 +46,13 @@ describe('<ExploreSidebar />', () => {
   })
 
   it('should render the filter button', () => {
-    renderWithTheme(<ExploreSidebar items={exploreMock} onFilter={jest.fn()} />)
+    render(<ExploreSidebar items={exploreMock} onFilter={jest.fn()} />)
 
     expect(screen.getByRole('button', { name: /filter/i })).toBeInTheDocument()
   })
 
   it('should check initial values that are passed', () => {
-    renderWithTheme(
+    render(
       <ExploreSidebar
         items={exploreMock}
         initialValues={{ windows: true, sort_by: 'low-to-high' }}
@@ -67,7 +67,7 @@ describe('<ExploreSidebar />', () => {
   it('should filter with initial values', async () => {
     const onFilter = jest.fn()
 
-    renderWithTheme(
+    render(
       <ExploreSidebar
         items={exploreMock}
         initialValues={{ windows: true, sort_by: 'low-to-high' }}
@@ -88,7 +88,7 @@ describe('<ExploreSidebar />', () => {
   it('should filter with checked values', async () => {
     const onFilter = jest.fn()
 
-    renderWithTheme(
+    render(
       <ExploreSidebar
         items={exploreMock}
         initialValues={{ windows: true, sort_by: 'low-to-high' }}
@@ -112,7 +112,7 @@ describe('<ExploreSidebar />', () => {
   it('should altern between radio options', async () => {
     const onFilter = jest.fn()
 
-    renderWithTheme(<ExploreSidebar items={exploreMock} onFilter={onFilter} />)
+    render(<ExploreSidebar items={exploreMock} onFilter={onFilter} />)
 
     await waitFor(() => {
       userEvent.click(screen.getByLabelText(/low to high/i))
@@ -125,7 +125,7 @@ describe('<ExploreSidebar />', () => {
   })
 
   xit('should open/close sidebar when filtering on mobile ', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <ExploreSidebar items={exploreMock} onFilter={jest.fn} />
     )
 

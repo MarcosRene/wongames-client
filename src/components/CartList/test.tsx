@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 import theme from 'styles/theme'
 
 import CartList from '.'
@@ -8,7 +8,7 @@ import cartListMock from './mock'
 
 describe('<CartList />', () => {
   it('should render the cart list ', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <CartList items={cartListMock} total="R$ 330,00" />
     )
 
@@ -22,15 +22,13 @@ describe('<CartList />', () => {
   })
 
   it('should render the button', () => {
-    renderWithTheme(
-      <CartList items={cartListMock} total="R$ 330,00" hasButton />
-    )
+    render(<CartList items={cartListMock} total="R$ 330,00" hasButton />)
 
     expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
   })
 
   it('should render empty if there are no games', () => {
-    renderWithTheme(<CartList />)
+    render(<CartList />)
 
     expect(screen.getByText(/your cart is empty/i)).toBeInTheDocument()
     expect(screen.queryByText(/total/i)).not.toBeInTheDocument()

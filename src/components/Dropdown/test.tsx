@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 
 import Dropdown from '.'
 
@@ -7,7 +7,7 @@ describe('<Dropdown />', () => {
   beforeEach(() => {
     const title = <h1 aria-label="toogle dropdown">Click here</h1>
 
-    const { debug, container } = renderWithTheme(
+    const { debug, container } = render(
       <Dropdown title={title}>
         <span>content</span>
       </Dropdown>

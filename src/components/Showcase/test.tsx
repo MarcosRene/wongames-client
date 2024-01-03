@@ -1,7 +1,7 @@
 import 'match-media-mock'
 import { screen } from '@testing-library/react'
 
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 
 import Showcase from '.'
 
@@ -16,7 +16,7 @@ const ownerProps = {
 
 describe('<Showcase />', () => {
   it('should render full showcase', () => {
-    const { container } = renderWithTheme(<Showcase {...ownerProps} />)
+    const { container } = render(<Showcase {...ownerProps} />)
 
     expect(
       screen.getByRole('heading', { name: /most popular/i })
@@ -33,7 +33,7 @@ describe('<Showcase />', () => {
   })
 
   it('should render without title', () => {
-    renderWithTheme(
+    render(
       <Showcase games={ownerProps.games} highlight={ownerProps.highlight} />
     )
 
@@ -46,9 +46,7 @@ describe('<Showcase />', () => {
   })
 
   it('should render without highlight', () => {
-    renderWithTheme(
-      <Showcase title={ownerProps.title} games={ownerProps.games} />
-    )
+    render(<Showcase title={ownerProps.title} games={ownerProps.games} />)
 
     screen.getByRole('heading', { name: /most popular/i })
     screen.getByRole('heading', { name: gamesMock[0].title })
@@ -59,7 +57,7 @@ describe('<Showcase />', () => {
   })
 
   it('should render without games', () => {
-    renderWithTheme(
+    render(
       <Showcase title={ownerProps.title} highlight={ownerProps.highlight} />
     )
 

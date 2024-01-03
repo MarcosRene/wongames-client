@@ -1,7 +1,7 @@
 import 'match-media-mock'
 import { screen } from '@testing-library/react'
 
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 import Home from '.'
 
 import bannersMock from 'components/BannerSlider/mock'
@@ -35,7 +35,7 @@ jest.mock('components/BannerSlider', () => {
 
 describe('<Home />', () => {
   it('should render Menu and Footer', () => {
-    renderWithTheme(<Home {...ownerProps} />)
+    render(<Home {...ownerProps} />)
 
     expect(
       screen.getByText(/render BannerSlider component/i)

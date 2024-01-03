@@ -1,11 +1,11 @@
 import { screen, waitFor } from '@testing-library/react'
-import { renderWithTheme, renderUserEvent } from 'utils/tests'
+import { render, renderUserEvent } from 'utils/tests'
 
 import UserDropdown from '.'
 
 describe('<UserDropdown />', () => {
   it('should render the username', () => {
-    renderWithTheme(<UserDropdown username="John Doe" />)
+    render(<UserDropdown username="John Doe" />)
 
     expect(screen.getByText(/john doe/i)).toBeInTheDocument()
   })

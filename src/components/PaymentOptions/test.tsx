@@ -1,5 +1,5 @@
 import { screen, waitFor } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 
 import PaymentOptions from '.'
 
@@ -10,7 +10,7 @@ describe('<PaymentOptions />', () => {
   it('should render the saved card options and the add new card button', () => {
     const handlePayment = jest.fn()
 
-    renderWithTheme(
+    render(
       <PaymentOptions
         cards={paymentOptionsMock}
         handlePayment={handlePayment}
@@ -29,7 +29,7 @@ describe('<PaymentOptions />', () => {
   it('should render select card when clicking on the label', async () => {
     const handlePayment = jest.fn()
 
-    renderWithTheme(
+    render(
       <PaymentOptions
         cards={paymentOptionsMock}
         handlePayment={handlePayment}
@@ -46,7 +46,7 @@ describe('<PaymentOptions />', () => {
   it('should not call handlePayment when button is disabled', () => {
     const handlePayment = jest.fn()
 
-    renderWithTheme(
+    render(
       <PaymentOptions
         cards={paymentOptionsMock}
         handlePayment={handlePayment}
@@ -61,7 +61,7 @@ describe('<PaymentOptions />', () => {
   it('should not call handlePayment when credit card selected', async () => {
     const handlePayment = jest.fn()
 
-    renderWithTheme(
+    render(
       <PaymentOptions
         cards={paymentOptionsMock}
         handlePayment={handlePayment}

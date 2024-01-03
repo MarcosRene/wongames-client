@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests'
+import { render } from 'utils/tests'
 
 import * as S from './styles'
 
@@ -15,7 +15,7 @@ const highlightProps = {
 
 describe('<Highlight />', () => {
   it('should render headings and button', () => {
-    const { container } = renderWithTheme(<Highlight {...highlightProps} />)
+    const { container } = render(<Highlight {...highlightProps} />)
 
     expect(
       screen.getByRole('heading', { name: /heading 1/i })
@@ -31,7 +31,7 @@ describe('<Highlight />', () => {
   })
 
   it('should render background image', () => {
-    const { container } = renderWithTheme(<Highlight {...highlightProps} />)
+    const { container } = render(<Highlight {...highlightProps} />)
 
     expect(container.firstChild).toHaveStyle({
       backgroundColor: `url(${highlightProps['backgroundImage']})`
@@ -39,9 +39,7 @@ describe('<Highlight />', () => {
   })
 
   it('should render float image', () => {
-    renderWithTheme(
-      <Highlight {...highlightProps} floatImage="/float-image.png" />
-    )
+    render(<Highlight {...highlightProps} floatImage="/float-image.png" />)
 
     expect(
       screen.getByRole('img', {
@@ -51,7 +49,7 @@ describe('<Highlight />', () => {
   })
 
   it('should render align right by default', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <Highlight {...highlightProps} floatImage="/float-image.png" />
     )
 
@@ -66,7 +64,7 @@ describe('<Highlight />', () => {
   })
 
   it('should render align left by default', () => {
-    const { container } = renderWithTheme(
+    const { container } = render(
       <Highlight {...highlightProps} alignment="left" />
     )
 
