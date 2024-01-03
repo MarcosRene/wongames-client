@@ -1,28 +1,16 @@
 import { useMemo } from 'react'
-import {
-  ApolloClient,
-  HttpLink,
-  InMemoryCache,
-  NormalizedCacheObject
-} from '@apollo/client'
-import { concatPagination } from '@apollo/client/utilities'
+import { ApolloClient, HttpLink, NormalizedCacheObject } from '@apollo/client'
 
 import { constants as c } from 'constants/index'
+
+import apolloCache from './apolloCache'
 
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
 export const createApolloClient = new ApolloClient({
   ssrMode: typeof window === 'undefined',
   link: new HttpLink({ uri: c.APOLLO_CLIENT_URI }),
-  cache: new InMemoryCache({
-    typePolicies: {
-      Query: {
-        fields: {
-          games: concatPagination()
-        }
-      }
-    }
-  })
+  cache: apolloCache
 })
 
 export const initializeApollo = (initialState = {}) => {
