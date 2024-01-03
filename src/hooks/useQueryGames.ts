@@ -9,9 +9,5 @@ import { GetGames } from 'graphql/queries/games'
 export function useQueryGames(
   options?: QueryHookOptions<QueryGames, QueryGamesVariables>
 ) {
-  const query = useQuery<QueryGames, QueryGamesVariables>(GetGames, options)
-
-  return {
-    ...query
-  }
+  return useQuery<QueryGames, QueryGamesVariables>(GetGames, options)
 }

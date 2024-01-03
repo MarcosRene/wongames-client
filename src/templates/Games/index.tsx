@@ -1,5 +1,7 @@
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 
+import { LIMIT } from 'constants/index'
+
 import { useQueryGames } from 'hooks/useQueryGames'
 
 import ExploreSidebar from 'components/ExploreSidebar'
@@ -14,20 +16,16 @@ import * as S from './styles'
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   const { data, fetchMore } = useQueryGames({
-    variables: { limit: 15 }
+    variables: { limit: LIMIT }
   })
 
   function handleFecthMoreGames() {
     fetchMore({
       variables: {
-        limit: 15,
+        limit: LIMIT,
         start: data?.games?.data.length
       }
     })
-  }
-
-  if (!data?.games) {
-    return null
   }
 
   return (
@@ -40,18 +38,19 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
 
         <section>
           <Grid>
-            {data.games.data.map((game) => (
-              <GameCard
-                key={game.attributes?.slug}
-                title={game.attributes?.name}
-                slug={game.attributes?.slug}
-                developer={
-                  game.attributes?.developers?.data[0].attributes?.name
-                }
-                img={`http://localhost:1337${game.attributes?.cover?.data?.attributes?.url}`}
-                price={game.attributes?.price}
-              />
-            ))}
+            {!!data?.games?.data &&
+              data.games.data.map((game) => (
+                <GameCard
+                  key={game.attributes?.slug}
+                  title={game.attributes?.name}
+                  slug={game.attributes?.slug}
+                  developer={
+                    game.attributes?.developers?.data[0].attributes?.name
+                  }
+                  img={`http://localhost:1337${game.attributes?.cover?.data?.attributes?.url}`}
+                  price={game.attributes?.price}
+                />
+              ))}
           </Grid>
 
           <S.ShowMore role="button" onClick={handleFecthMoreGames}>

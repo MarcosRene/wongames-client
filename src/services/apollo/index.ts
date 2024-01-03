@@ -5,7 +5,7 @@ import { constants as c } from 'constants/index'
 
 import apolloCache from './apolloCache'
 
-let apolloClient: ApolloClient<NormalizedCacheObject>
+let apolloClient: ApolloClient<NormalizedCacheObject | null>
 
 export const createApolloClient = new ApolloClient({
   ssrMode: typeof window === 'undefined',
@@ -13,7 +13,7 @@ export const createApolloClient = new ApolloClient({
   cache: apolloCache
 })
 
-export const initializeApollo = (initialState = {}) => {
+export const initializeApollo = (initialState = null) => {
   const apolloClientGlobal = apolloClient ?? createApolloClient
 
   if (initialState) {
@@ -29,5 +29,5 @@ export const initializeApollo = (initialState = {}) => {
   return apolloClient
 }
 
-export const useApollo = (initialState = {}) =>
+export const useApollo = (initialState = null) =>
   useMemo(() => initializeApollo(initialState), [initialState])
