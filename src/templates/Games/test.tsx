@@ -1,8 +1,10 @@
 import { screen } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
+import userEvent from '@testing-library/user-event'
+import apolloCache from 'services/apollo/apolloCache'
 import { render } from 'utils/tests'
 
-import { mocks } from './mocks'
+import { fetchMoreMock, mocks } from './mocks'
 
 import Games from '.'
 
@@ -15,37 +17,41 @@ jest.mock('templates/Base', () => {
   }
 })
 
-jest.mock('components/ExploreSidebar', () => {
-  // eslint-disable-next-line react/display-name
-  return ({ children }: { children: React.ReactNode }) => {
-    return <div data-testid="ExploreSidebar">{children}</div>
-  }
-})
-
-jest.mock('components/GameCard', () => {
-  // eslint-disable-next-line react/display-name
-  return ({ children }: { children: React.ReactNode }) => {
-    return <div data-testid="GameCard">{children}</div>
-  }
-})
-
 describe('<Games />', () => {
   it('should render sections', async () => {
     render(<Games filterItems={[filterItemsMock[0]]} />, {
       wrapper: ({ children }: { children: React.ReactNode }) => {
+        return <MockedProvider mocks={mocks}>{children}</MockedProvider>
+      }
+    })
+
+    expect(await screen.findByText(/succubus/i)).toBeInTheDocument()
+
+    expect(
+      await screen.findByRole('button', { name: /show more/i })
+    ).toBeInTheDocument()
+  })
+
+  it('should render more games when show more is clicked', async () => {
+    render(<Games filterItems={[filterItemsMock[0]]} />, {
+      wrapper: ({ children }: { children: React.ReactNode }) => {
         return (
-          <MockedProvider mocks={mocks} addTypename={false}>
+          <MockedProvider
+            mocks={[...mocks, ...fetchMoreMock]}
+            cache={apolloCache}
+          >
             {children}
           </MockedProvider>
         )
       }
     })
 
-    expect(await screen.findByTestId('ExploreSidebar')).toBeInTheDocument()
-    expect(await screen.findByTestId('GameCard')).toBeInTheDocument()
+    expect(await screen.findByText(/succubus/i)).toBeInTheDocument()
+
+    userEvent.click(await screen.findByRole('button', { name: /show more/i }))
 
     expect(
-      await screen.findByRole('button', { name: /show more/i })
+      await screen.findByText('Cyberpunk 2077: Phantom Liberty')
     ).toBeInTheDocument()
   })
 })
