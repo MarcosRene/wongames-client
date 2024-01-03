@@ -1,9 +1,9 @@
 export type GameCardProps = {
-  slug: string
-  title: string
-  developer: string
+  slug: string | undefined | null
+  title: string | undefined
+  developer: string | undefined
   img: string
-  price: number
+  price: number | undefined
   promotionalPrice?: number
   favorite?: boolean
   onFav?: () => void

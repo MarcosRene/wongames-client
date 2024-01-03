@@ -61,12 +61,14 @@ const GameCard = ({
         <S.BuyBox>
           {!!promotionalPrice && (
             <S.Price isPromotional>
-              {price === 0 ? 'Free' : formatCurrency(price)}
+              {price === 0 ? 'Free' : formatCurrency(price ?? 0)}
             </S.Price>
           )}
 
           <S.Price>
-            {price === 0 ? 'Free' : formatCurrency(promotionalPrice || price)}
+            {price === 0
+              ? 'Free'
+              : formatCurrency((promotionalPrice || price) ?? 0)}
           </S.Price>
           <Button icon={<AddShoppingCart />} size="small" />
         </S.BuyBox>

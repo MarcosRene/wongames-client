@@ -1,5 +1,6 @@
-import { useQuery } from '@apollo/client'
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
+
+import { useQueryGames } from 'hooks/useQueryGames'
 
 import ExploreSidebar from 'components/ExploreSidebar'
 import GameCard from 'components/GameCard'
@@ -7,23 +8,14 @@ import { Grid } from 'components/Grid'
 
 import BaseTemplate from 'templates/Base'
 
-import {
-  QueryGames,
-  QueryGamesVariables
-} from 'graphql/__genereted__/QueryGames'
-import { GetGames } from 'graphql/queries/games'
-
 import { GamesTemplateProps } from './types'
 
 import * as S from './styles'
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
-  const { data, fetchMore } = useQuery<QueryGames, QueryGamesVariables>(
-    GetGames,
-    {
-      variables: { limit: 15 }
-    }
-  )
+  const { data, fetchMore } = useQueryGames({
+    variables: { limit: 15 }
+  })
 
   function handleFecthMoreGames() {
     fetchMore({
@@ -32,6 +24,10 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
         start: data?.games?.data.length
       }
     })
+  }
+
+  if (!data?.games) {
+    return null
   }
 
   return (
@@ -44,7 +40,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
 
         <section>
           <Grid>
-            {data?.games?.data?.map((game) => (
+            {data.games.data.map((game) => (
               <GameCard
                 key={game.attributes?.slug}
                 title={game.attributes?.name}
