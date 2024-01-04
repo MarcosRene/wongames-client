@@ -55,7 +55,7 @@ describe('<ExploreSidebar />', () => {
     render(
       <ExploreSidebar
         items={exploreMock}
-        initialValues={{ windows: true, sort_by: 'low-to-high' }}
+        initialValues={{ platforms: ['windows'], sort_by: 'low-to-high' }}
         onFilter={jest.fn()}
       />
     )
@@ -70,7 +70,7 @@ describe('<ExploreSidebar />', () => {
     render(
       <ExploreSidebar
         items={exploreMock}
-        initialValues={{ windows: true, sort_by: 'low-to-high' }}
+        initialValues={{ platforms: ['windows'], sort_by: 'low-to-high' }}
         onFilter={onFilter}
       />
     )
@@ -79,7 +79,7 @@ describe('<ExploreSidebar />', () => {
       userEvent.click(screen.getByRole('button', { name: /filter/i }))
 
       expect(onFilter).toHaveBeenCalledWith({
-        windows: true,
+        platforms: ['windows'],
         sort_by: 'low-to-high'
       })
     })
@@ -91,7 +91,7 @@ describe('<ExploreSidebar />', () => {
     render(
       <ExploreSidebar
         items={exploreMock}
-        initialValues={{ windows: true, sort_by: 'low-to-high' }}
+        initialValues={{ platforms: ['windows'], sort_by: 'low-to-high' }}
         onFilter={onFilter}
       />
     )
@@ -103,7 +103,7 @@ describe('<ExploreSidebar />', () => {
       userEvent.click(screen.getByRole('button', { name: /filter/i }))
 
       expect(onFilter).toHaveBeenCalledWith({
-        windows: true,
+        platforms: ['windows'],
         sort_by: 'low-to-high'
       })
     })

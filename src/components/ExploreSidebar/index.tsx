@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import xor from 'lodash.xor'
 import { Close } from '@styled-icons/material-outlined/Close'
 import { FilterList } from '@styled-icons/material-outlined/FilterList'
 
@@ -24,10 +25,19 @@ const ExploreSidebar = ({
     onFilter(values)
   }
 
-  const handleFieldsChange = (name: string, value: string | boolean) => {
+  const handleRadioChange = (name: string, value: string | boolean) => {
     setValues((prevState) => ({
       ...prevState,
       [name]: value
+    }))
+  }
+
+  const handleCheckboxChange = (name: string, value: string) => {
+    const currentList = (values[name] as []) || []
+
+    setValues((prevState) => ({
+      ...prevState,
+      [name]: xor(currentList, [value])
     }))
   }
 
@@ -42,8 +52,8 @@ const ExploreSidebar = ({
             name={field.name}
             label={field.label}
             labelFor={field.name}
-            isChecked={!!values[field.name]}
-            onCheck={(value) => handleFieldsChange(field.name, value)}
+            isChecked={(values[item.name] as string[])?.includes(field.name)}
+            onCheck={() => handleCheckboxChange(item.name, field.name)}
           />
         ))
       },
@@ -57,8 +67,10 @@ const ExploreSidebar = ({
             name={item.name}
             label={field.label}
             labelFor={field.name}
-            defaultChecked={field.name === values[item.name]}
-            onChange={() => handleFieldsChange(item.name, field.name)}
+            defaultChecked={
+              (field.name as string) === (values[item.name] as string)
+            }
+            onChange={() => handleRadioChange(item.name, field.name)}
           />
         ))
       }

@@ -25,6 +25,6 @@ export const Default: StoryObj<typeof ExploreSidebar> = {
 
 export const WithInitialValues: StoryObj<typeof ExploreSidebar> = {
   args: {
-    initialValues: { windows: true, sort_by: 'low-to-high' }
+    initialValues: { platforms: ['windows', 'linux'], sort_by: 'low-to-high' }
   }
 }
