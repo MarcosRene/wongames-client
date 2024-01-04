@@ -102,6 +102,8 @@ describe('<ExploreSidebar />', () => {
 
       userEvent.click(screen.getByRole('button', { name: /filter/i }))
 
+      expect(onFilter).toHaveBeenCalledTimes(4)
+
       expect(onFilter).toHaveBeenCalledWith({
         platforms: ['windows'],
         sort_by: 'low-to-high'
@@ -117,8 +119,6 @@ describe('<ExploreSidebar />', () => {
     await waitFor(() => {
       userEvent.click(screen.getByLabelText(/low to high/i))
       userEvent.click(screen.getByLabelText(/high to low/i))
-
-      userEvent.click(screen.getByRole('button', { name: /filter/i }))
 
       expect(onFilter).toHaveBeenCalledWith({ sort_by: 'high-to-low' })
     })
@@ -145,6 +145,12 @@ describe('<ExploreSidebar />', () => {
     expect(Element).toHaveStyleRule('opacity', '1', variant)
 
     userEvent.click(screen.getByLabelText(/close filters/))
+
+    expect(Element).not.toHaveStyleRule('opacity', '1', variant)
+
+    userEvent.click(screen.getByLabelText(/open filters/))
+
+    userEvent.click(screen.getByRole('button', { name: /filter/i }))
 
     expect(Element).not.toHaveStyleRule('opacity', '1', variant)
   })

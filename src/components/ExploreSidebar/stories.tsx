@@ -9,7 +9,10 @@ export default {
   title: 'ExploreSidebar',
   component: ExploreSidebar,
   args: {
-    items: exploreMock
+    items: exploreMock,
+    onFilter: () => {
+      console.log('filter')
+    }
   },
   decorators: [(Story) => <Container>{Story()}</Container>]
 } as Meta<typeof ExploreSidebar>

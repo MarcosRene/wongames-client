@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import xor from 'lodash.xor'
 import { Close } from '@styled-icons/material-outlined/Close'
 import { FilterList } from '@styled-icons/material-outlined/FilterList'
@@ -20,10 +20,11 @@ const ExploreSidebar = ({
   const [values, setValues] = useState(initialValues)
   const [isOpen, setIsOpen] = useState(false)
 
-  const handleOnFilter = () => {
-    handleOpenCloseMenu()
+  useEffect(() => {
+    // This method comes from another template
+    // That we don't have access
     onFilter(values)
-  }
+  }, [values])
 
   const handleRadioChange = (name: string, value: string | boolean) => {
     setValues((prevState) => ({
@@ -100,7 +101,7 @@ const ExploreSidebar = ({
       </S.Content>
 
       <S.Footer>
-        <Button fullWidth size="medium" onClick={handleOnFilter}>
+        <Button fullWidth size="medium" onClick={handleOpenCloseMenu}>
           Filter
         </Button>
       </S.Footer>
