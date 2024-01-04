@@ -80,6 +80,36 @@ export interface QueryRecommended_recommended_data_attributes_section_games_data
   data: QueryRecommended_recommended_data_attributes_section_games_data_attributes_developers_data[];
 }
 
+export interface QueryRecommended_recommended_data_attributes_section_games_data_attributes_platforms_data_attributes {
+  __typename: "Platform";
+  name: string;
+}
+
+export interface QueryRecommended_recommended_data_attributes_section_games_data_attributes_platforms_data {
+  __typename: "PlatformEntity";
+  attributes: QueryRecommended_recommended_data_attributes_section_games_data_attributes_platforms_data_attributes | null;
+}
+
+export interface QueryRecommended_recommended_data_attributes_section_games_data_attributes_platforms {
+  __typename: "PlatformRelationResponseCollection";
+  data: QueryRecommended_recommended_data_attributes_section_games_data_attributes_platforms_data[];
+}
+
+export interface QueryRecommended_recommended_data_attributes_section_games_data_attributes_categories_data_attributes {
+  __typename: "Category";
+  name: string;
+}
+
+export interface QueryRecommended_recommended_data_attributes_section_games_data_attributes_categories_data {
+  __typename: "CategoryEntity";
+  attributes: QueryRecommended_recommended_data_attributes_section_games_data_attributes_categories_data_attributes | null;
+}
+
+export interface QueryRecommended_recommended_data_attributes_section_games_data_attributes_categories {
+  __typename: "CategoryRelationResponseCollection";
+  data: QueryRecommended_recommended_data_attributes_section_games_data_attributes_categories_data[];
+}
+
 export interface QueryRecommended_recommended_data_attributes_section_games_data_attributes {
   __typename: "Game";
   slug: string | null;
@@ -87,6 +117,8 @@ export interface QueryRecommended_recommended_data_attributes_section_games_data
   price: number;
   cover: QueryRecommended_recommended_data_attributes_section_games_data_attributes_cover | null;
   developers: QueryRecommended_recommended_data_attributes_section_games_data_attributes_developers | null;
+  platforms: QueryRecommended_recommended_data_attributes_section_games_data_attributes_platforms | null;
+  categories: QueryRecommended_recommended_data_attributes_section_games_data_attributes_categories | null;
 }
 
 export interface QueryRecommended_recommended_data_attributes_section_games_data {

@@ -127,6 +127,36 @@ export interface SectionsFragment_popularGames_games_data_attributes_developers 
   data: SectionsFragment_popularGames_games_data_attributes_developers_data[];
 }
 
+export interface SectionsFragment_popularGames_games_data_attributes_platforms_data_attributes {
+  __typename: "Platform";
+  name: string;
+}
+
+export interface SectionsFragment_popularGames_games_data_attributes_platforms_data {
+  __typename: "PlatformEntity";
+  attributes: SectionsFragment_popularGames_games_data_attributes_platforms_data_attributes | null;
+}
+
+export interface SectionsFragment_popularGames_games_data_attributes_platforms {
+  __typename: "PlatformRelationResponseCollection";
+  data: SectionsFragment_popularGames_games_data_attributes_platforms_data[];
+}
+
+export interface SectionsFragment_popularGames_games_data_attributes_categories_data_attributes {
+  __typename: "Category";
+  name: string;
+}
+
+export interface SectionsFragment_popularGames_games_data_attributes_categories_data {
+  __typename: "CategoryEntity";
+  attributes: SectionsFragment_popularGames_games_data_attributes_categories_data_attributes | null;
+}
+
+export interface SectionsFragment_popularGames_games_data_attributes_categories {
+  __typename: "CategoryRelationResponseCollection";
+  data: SectionsFragment_popularGames_games_data_attributes_categories_data[];
+}
+
 export interface SectionsFragment_popularGames_games_data_attributes {
   __typename: "Game";
   slug: string | null;
@@ -134,6 +164,8 @@ export interface SectionsFragment_popularGames_games_data_attributes {
   price: number;
   cover: SectionsFragment_popularGames_games_data_attributes_cover | null;
   developers: SectionsFragment_popularGames_games_data_attributes_developers | null;
+  platforms: SectionsFragment_popularGames_games_data_attributes_platforms | null;
+  categories: SectionsFragment_popularGames_games_data_attributes_categories | null;
 }
 
 export interface SectionsFragment_popularGames_games_data {

@@ -19,5 +19,19 @@ export const GameFragment = gql`
         }
       }
     }
+    platforms {
+      data {
+        attributes {
+          name
+        }
+      }
+    }
+    categories {
+      data {
+        attributes {
+          name
+        }
+      }
+    }
   }
 `

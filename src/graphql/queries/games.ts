@@ -2,8 +2,17 @@ import { gql } from '@apollo/client'
 import { GameFragment } from 'graphql/fragments/game'
 
 export const GetGames = gql`
-  query QueryGames($limit: Int!, $start: Int) {
-    games(pagination: { limit: $limit, start: $start }) {
+  query QueryGames(
+    $start: Int
+    $limit: Int!
+    $filters: GameFiltersInput
+    $sort: [String]
+  ) {
+    games(
+      pagination: { start: $start, limit: $limit }
+      filters: $filters
+      sort: $sort
+    ) {
       data {
         attributes {
           ...GameFragment
