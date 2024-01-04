@@ -1,6 +1,13 @@
+import { useCallback } from 'react'
+import { useRouter } from 'next/router'
+import { ParsedUrlQueryInput } from 'querystring'
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 
 import { LIMIT } from 'constants/index'
+import {
+  parseQueryStringToFilter,
+  parseQueryStringToFilters
+} from 'utils/filter'
 
 import { useQueryGames } from 'hooks/useQueryGames'
 
@@ -15,8 +22,17 @@ import { GamesTemplateProps } from './types'
 import * as S from './styles'
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
+  const router = useRouter()
+
   const { data, fetchMore } = useQueryGames({
-    variables: { limit: LIMIT }
+    variables: {
+      limit: LIMIT,
+      filters: parseQueryStringToFilters({
+        queryString: router.query,
+        filterItems
+      }),
+      sort: router.query.sort as string[] | null
+    }
   })
 
   function handleFecthMoreGames() {
@@ -28,12 +44,27 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
     })
   }
 
+  const handleOnFilter = useCallback(
+    (items: ParsedUrlQueryInput) => {
+      router.push({
+        pathname: '/games',
+        query: items
+      })
+      return
+    },
+    [router]
+  )
+
   return (
     <BaseTemplate>
       <S.Main>
         <ExploreSidebar
+          initialValues={parseQueryStringToFilter({
+            queryString: router.query,
+            filterItems
+          })}
           items={filterItems}
-          onFilter={() => console.log('filter')}
+          onFilter={handleOnFilter}
         />
 
         <section>
